@@ -22,6 +22,22 @@
       "url": "http://henryzoo.com"
     },
   "license": "MIT",
+  "dependencies": {
+    "express": "~4.9.7",
+    "node-jsx": "~0.11.0",
+    "react": "~0.11.2",
+    "socket.io": "^1.1.0"
+  },
+  "devDependencies": {
+    "webpack": "~1.4.15",
+    "style-loader": "~0.8.2",
+    "css-loader": "~0.9.0",
+    "jsx-loader": "~0.12.2",
+    "nodemon": "^1.2.1",
+    "reactify": "~0.14.0",
+    "uglify-js": "~2.4.15",
+    "watchify": "~2.0.0"
+  },
   "bugs": {
     "url": "https://github.com/hzoo/shengji/issues"
   },
