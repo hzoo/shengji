@@ -24,22 +24,18 @@
   "license": "MIT",
   "dependencies": {
     "express": "~4.9.7",
-    "express-handlebars": "~1.1.0",
     "node-jsx": "~0.11.0",
     "react": "~0.11.2",
     "socket.io": "^1.1.0"
   },
   "devDependencies": {
-    "browserify": "~6.0.3",
+    "webpack": "~1.4.15",
+    "style-loader": "~0.8.2",
+    "css-loader": "~0.9.0",
     "nodemon": "^1.2.1",
     "reactify": "~0.14.0",
     "uglify-js": "~2.4.15",
     "watchify": "~2.0.0"
-  },
-  "browserify": {
-    "transform": [
-      "reactify"
-    ]
   },
   "bugs": {
     "url": "https://github.com/hzoo/shengji/issues"

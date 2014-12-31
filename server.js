@@ -8,11 +8,8 @@ var express = require('express'),
 var app = express();
 var port = process.env.PORT || 5000;
 
-app.engine('handlebars', exphbs({ defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
 app.disable('etag');
 
-app.get('/', routes.index);
 app.use("/", express.static(__dirname + "/public/"));
 
 var server = http.createServer(app).listen(port, function() {

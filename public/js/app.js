@@ -1,3 +1,2 @@
-$(document).ready(function(){
-	//whatever needs to go in here, placeholder
-});
+require("../css/main.css");
+document.write("Hello world");
