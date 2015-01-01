@@ -30,7 +30,8 @@
     "express": "~4.9.7",
     "node-jsx": "~0.11.0",
     "react": "~0.11.2",
-    "reflux": "~0.2.1"
+    "reflux": "~0.2.1",
+    "lodash": "~2.4.1"
   },
   "devDependencies": {
     "webpack": "~1.4.15",
@@ -42,7 +43,8 @@
     "reactify": "~0.14.0",
     "uglify-js": "~2.4.15",
     "watchify": "~2.0.0",
-    "tape": "~3.0.3"
+    "tape": "~3.0.3",
+    "jscs": "~1.8.1"
   },
   "bugs": {
     "url": "https://github.com/hzoo/shengji/issues"
