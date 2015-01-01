@@ -1,3 +1,13 @@
 body {
 	width: 100%;
 }
+
+.card {
+	min-width: 10%;
+	border-width: 1px;
+	border-color: black;
+}
+
+.hand {
+	width: 80%;
+}

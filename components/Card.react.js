@@ -4,7 +4,7 @@ module.exports = Card = React.createClass({
 	render: function(){
 		var card = this.props.card;
 		return (
-			<div class={"card"}>
+			<div className={"card"}>
 				<p>
 					{card.value} of {card.suit}
 				</p>

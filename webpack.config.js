@@ -1,9 +1,9 @@
 module.exports = {
-    entry: "./public/js/app.jsx",
+    entry: ["webpack/hot/dev-server", "./app.jsx"],
     output: {
-        path: __dirname,
-        filename: "./public/js/bundle.js",
-        publicPath: './public/js/'
+        path: "./build",
+        filename: "bundle.js",
+        publicPath: '/build/'
     },
     module: {
         loaders: [
