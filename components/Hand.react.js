@@ -9,7 +9,7 @@ module.exports = Hand = React.createClass({
 			)
 		});
 		return (
-			<ul class={"hand"}>{cards}</ul>
+			<div className={"container hand"}>{cards}</div>
 		)
 	}
 });

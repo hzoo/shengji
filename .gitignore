@@ -28,4 +28,4 @@ node_modules
 .lock-wscript
 
 # Webpack generated file
-bundle.js
+build/
