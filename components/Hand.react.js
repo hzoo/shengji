@@ -5,7 +5,7 @@ module.exports = Hand = React.createClass({
 	render: function(){
 		var cards = this.props.cards.map(function(card){
 			return(
-				<Card card={card}/>
+				<Card card={card} playerId={1}/>
 			)
 		});
 		return (

@@ -5,7 +5,8 @@
   "scripts": {
     "start": "npm run serve | npm run dev",
     "serve": "node server",
-    "dev": "webpack-dev-server --content-base build/ --progress --colors --hot --port 8090"
+    "dev": "webpack-dev-server --content-base build/ --progress --colors --hot --port 8090",
+    "test": "tape test/*.js"
   },
   "repository": {
     "type": "git",
@@ -21,14 +22,15 @@
     "cardgame"
   ],
   "author": {
-      "name": "Henry Zhu",
-      "url": "http://henryzoo.com"
-    },
+    "name": "Henry Zhu",
+    "url": "http://henryzoo.com"
+  },
   "license": "MIT",
   "dependencies": {
     "express": "~4.9.7",
     "node-jsx": "~0.11.0",
-    "react": "~0.11.2"
+    "react": "~0.11.2",
+    "reflux": "~0.2.1"
   },
   "devDependencies": {
     "webpack": "~1.4.15",
@@ -39,7 +41,8 @@
     "nodemon": "^1.2.1",
     "reactify": "~0.14.0",
     "uglify-js": "~2.4.15",
-    "watchify": "~2.0.0"
+    "watchify": "~2.0.0",
+    "tape": "~3.0.3"
   },
   "bugs": {
     "url": "https://github.com/hzoo/shengji/issues"
