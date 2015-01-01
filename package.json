@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "升级: a chinese trick-taking card game",
   "scripts": {
+    "test": "tape test/*.js"
   },
   "repository": {
     "type": "git",
@@ -18,12 +19,19 @@
     "cardgame"
   ],
   "author": {
-      "name": "Henry Zhu",
-      "url": "http://henryzoo.com"
-    },
+    "name": "Henry Zhu",
+    "url": "http://henryzoo.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/hzoo/shengji/issues"
   },
-  "homepage": "https://github.com/hzoo/shengji"
+  "homepage": "https://github.com/hzoo/shengji",
+  "devDependencies": {
+    "tape": "~3.0.3",
+    "jscs": "~1.8.1"
+  },
+  "dependencies": {
+    "lodash": "~2.4.1"
+  }
 }
