@@ -47,5 +47,12 @@
   "bugs": {
     "url": "https://github.com/hzoo/shengji/issues"
   },
-  "homepage": "https://github.com/hzoo/shengji"
+  "homepage": "https://github.com/hzoo/shengji",
+  "devDependencies": {
+    "tape": "~3.0.3",
+    "jscs": "~1.8.1"
+  },
+  "dependencies": {
+    "lodash": "~2.4.1"
+  }
 }
