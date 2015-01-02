@@ -1,7 +1,7 @@
 module.exports = {
-    entry: ["webpack/hot/dev-server", "./app.jsx"],
+    entry: ["./app.jsx"],
     output: {
-        path: "./build",
+        path: "./public/build",
         filename: "bundle.js",
         publicPath: '/build/'
     },
@@ -15,9 +15,9 @@ module.exports = {
                 test: /\.react.js$/,
                 loader: 'jsx-loader?insertPragma=React.DOM&harmony'
             },
-            { 
+            {
                 test: /\.css$/,
-                loader: "style!css" 
+                loader: "style!css"
             }
         ]
     },

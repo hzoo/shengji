@@ -4,10 +4,10 @@
   "description": "升级: a chinese trick-taking card game",
   "scripts": {
     "start": "node server",
-    "dev": "npm start && npm run hotload",
+    "dev": "npm start | npm run hotload",
     "hotload": "webpack-dev-server --content-base build/ --progress --colors --hot --port 8090",
     "test": "tape test/*.js",
-    "postinstall": "$(npm bin)/webpack"
+    "postinstall": "$(npm bin)/webpack ./app.jsx ./public/build/bundle.js"
   },
   "repository": {
     "type": "git",
