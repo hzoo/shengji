@@ -1,6 +1,7 @@
+'use strict';
 var React = require('react');
 var Reflux = require('reflux');
-var Hand = require('./Hand.react.js');
+var Hand = require('./Hand.jsx');
 var cardStore = require('../stores/cardsStore');
 
 var example_hand = [{
@@ -14,7 +15,7 @@ var example_hand = [{
 	suit: "diamonds"
 }];
 
-module.exports = ShengJi = React.createClass({
+var ShengJi = React.createClass({
 	mixins: [Reflux.listenTo(cardStore, "onStatusChange")],
 	onStatusChange: function(status) {
 		console.log("shengji component received " + status);
@@ -27,3 +28,5 @@ module.exports = ShengJi = React.createClass({
 		)
 	}
 });
+
+module.exports = ShengJi;

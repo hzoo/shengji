@@ -10,9 +10,6 @@ module.exports = {
       test: /\.jsx$/,
       loader: 'jsx-loader?insertPragma=React.DOM&harmony'
     }, {
-      test: /\.react.js$/,
-      loader: 'jsx-loader?insertPragma=React.DOM&harmony'
-    }, {
       test: /\.css$/,
       loader: "style!css"
     }]

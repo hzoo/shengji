@@ -1,7 +1,8 @@
+'use strict';
 var React = require('react');
-var Card = require('./Card.react.js');
+var Card = require('./Card.jsx');
 
-module.exports = Hand = React.createClass({
+var Hand = React.createClass({
 	render: function() {
 		var cards = this.props.cards.map(function(card) {
 			return (
@@ -15,3 +16,5 @@ module.exports = Hand = React.createClass({
 		)
 	}
 });
+
+module.exports = Hand;

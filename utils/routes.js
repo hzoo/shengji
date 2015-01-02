@@ -1,9 +1,9 @@
-var JSX = require('node-jsx').install(),
-	React = require('react'),
-	logger = require('./Logger');
+'use strict';
+var logger = require('./Logger');
 
 module.exports = {
 	index: function(req, res) {
+		logger.log("GET /index.html");
 		res.render('index');
 	}
-}
+};

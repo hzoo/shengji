@@ -1,3 +1,4 @@
+'use strict';
 var Reflux = require('reflux');
 var actions = require('../actions/actions');
 
@@ -13,4 +14,4 @@ var cardsStore = Reflux.createStore({
 	}
 });
 
-module.exports = cardsStore
+module.exports = cardsStore;

@@ -27,7 +27,7 @@ var plays = [{
 		value: ShengJi.cardValue.CURRENTLEVEL,
 		suit: ShengJi.cardSuit.CLUBS
 	}]
-}]
+}];
 
 describe('Trick', function(suite) {
 	var it = suite.test;
