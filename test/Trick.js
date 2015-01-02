@@ -3,49 +3,36 @@ var describe = require('tape').test;
 var ShengJi = require('../lib/ShengJi')();
 var Trick = require('../lib/Trick');
 
-var plays = [
-	{
-		player: 1,
-		cards: [
-			{
-				value: ShengJi.cardValue.KING,
-				suit: ShengJi.cardSuit.DIAMONDS
-			}
-		]
-	},
-	{
-		player: 2,
-		cards: [
-			{
-				value: ShengJi.cardValue.ACE,
-				suit: ShengJi.cardSuit.DIAMONDS
-			}
-		]
-	},
-	{
-		player: 3,
-		cards: [
-			{
-				value: ShengJi.cardValue.FOUR,
-				suit: ShengJi.cardSuit.SPADES
-			}
-		]
-	},
-	{
-		player: 4,
-		cards: [
-			{
-				value: ShengJi.cardValue.CURRENTLEVEL,
-				suit: ShengJi.cardSuit.CLUBS
-			}
-		]
-	}
-]
+var plays = [{
+	player: 1,
+	cards: [{
+		value: ShengJi.cardValue.KING,
+		suit: ShengJi.cardSuit.DIAMONDS
+	}]
+}, {
+	player: 2,
+	cards: [{
+		value: ShengJi.cardValue.ACE,
+		suit: ShengJi.cardSuit.DIAMONDS
+	}]
+}, {
+	player: 3,
+	cards: [{
+		value: ShengJi.cardValue.FOUR,
+		suit: ShengJi.cardSuit.SPADES
+	}]
+}, {
+	player: 4,
+	cards: [{
+		value: ShengJi.cardValue.CURRENTLEVEL,
+		suit: ShengJi.cardSuit.CLUBS
+	}]
+}]
 
-describe('Trick', function(suite){
+describe('Trick', function(suite) {
 	var it = suite.test;
 
-	it('Creates a new Trick and sets the properties correctly', function(t){
+	it('Creates a new Trick and sets the properties correctly', function(t) {
 		t.plan(5);
 
 		var trick = new Trick(plays[0], 2);
@@ -56,7 +43,7 @@ describe('Trick', function(suite){
 		t.equals(trick.trumpSuit, ShengJi.cardSuit.JOKER, 'Sets trump to joker by default');
 	});
 
-	it('Calculates point cards in the trick correctly', function(t){
+	it('Calculates point cards in the trick correctly', function(t) {
 		t.plan(4);
 
 		var points = new Trick(plays[0], 2);
@@ -67,14 +54,14 @@ describe('Trick', function(suite){
 		t.equals(nopoints.pointCards().length, 0, 'Returns the cards with points correctly when there are no points');
 	});
 
-	it('Sets the trump correctly', function(t){
+	it('Sets the trump correctly', function(t) {
 		t.plan(1);
 
 		var trick = new Trick(plays[2], 2, ShengJi.cardSuit.DIAMONDS);
 		t.equals(trick.trumpSuit, ShengJi.cardSuit.DIAMONDS, 'Sets the trump suit correctly when given');
 	});
 
-	it('Compares plays and updates the current leader correctly', function(t){
+	it('Compares plays and updates the current leader correctly', function(t) {
 		t.plan(6);
 
 		var trick = new Trick(plays[0], 2, ShengJi.cardSuit.SPADES);

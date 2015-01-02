@@ -2,29 +2,41 @@
 var describe = require('tape').test;
 var ShengJi = require('../lib/ShengJi')();
 
-var jokers = [
-  {value: ShengJi.cardValue.REDJOKER},
-  {value: ShengJi.cardValue.BLACKJOKER}
-];
+var jokers = [{
+  value: ShengJi.cardValue.REDJOKER
+}, {
+  value: ShengJi.cardValue.BLACKJOKER
+}];
 
-var nonPointCards = [
-  {value: ShengJi.cardValue.TWO},
-  {value: ShengJi.cardValue.THREE},
-  {value: ShengJi.cardValue.FOUR},
-  {value: ShengJi.cardValue.SIX},
-  {value: ShengJi.cardValue.SEVEN},
-  {value: ShengJi.cardValue.EIGHT},
-  {value: ShengJi.cardValue.NINE},
-  {value: ShengJi.cardValue.JACK},
-  {value: ShengJi.cardValue.QUEEN},
-  {value: ShengJi.cardValue.ACE}
-];
+var nonPointCards = [{
+  value: ShengJi.cardValue.TWO
+}, {
+  value: ShengJi.cardValue.THREE
+}, {
+  value: ShengJi.cardValue.FOUR
+}, {
+  value: ShengJi.cardValue.SIX
+}, {
+  value: ShengJi.cardValue.SEVEN
+}, {
+  value: ShengJi.cardValue.EIGHT
+}, {
+  value: ShengJi.cardValue.NINE
+}, {
+  value: ShengJi.cardValue.JACK
+}, {
+  value: ShengJi.cardValue.QUEEN
+}, {
+  value: ShengJi.cardValue.ACE
+}];
 
-var pointCards = [
-  {value: ShengJi.cardValue.FIVE},
-  {value: ShengJi.cardValue.TEN},
-  {value: ShengJi.cardValue.KING}
-];
+var pointCards = [{
+  value: ShengJi.cardValue.FIVE
+}, {
+  value: ShengJi.cardValue.TEN
+}, {
+  value: ShengJi.cardValue.KING
+}];
 
 describe('ShengJi', function(suite) {
   var it = suite.test;
@@ -32,17 +44,17 @@ describe('ShengJi', function(suite) {
   it('calcluates cards that are points', function(t) {
     t.plan(3);
 
-    t.equals(ShengJi.calcPointsForSingleCard(
-      {value: ShengJi.cardValue.FIVE}
-    ), 5, '5 is 5 points');
+    t.equals(ShengJi.calcPointsForSingleCard({
+      value: ShengJi.cardValue.FIVE
+    }), 5, '5 is 5 points');
 
-    t.equals(ShengJi.calcPointsForSingleCard(
-      {value: ShengJi.cardValue.TEN}
-    ), 10, '10 is 10 points');
+    t.equals(ShengJi.calcPointsForSingleCard({
+      value: ShengJi.cardValue.TEN
+    }), 10, '10 is 10 points');
 
-    t.equals(ShengJi.calcPointsForSingleCard(
-      {value: ShengJi.cardValue.KING}
-    ), 10, 'K is 10 points');
+    t.equals(ShengJi.calcPointsForSingleCard({
+      value: ShengJi.cardValue.KING
+    }), 10, 'K is 10 points');
   });
 
   it('calcluates other cards to be worth no points', function(t) {
@@ -62,17 +74,17 @@ describe('ShengJi', function(suite) {
     t.plan(2);
 
     // Default multiplier
-    t.equals(ShengJi.calcKittyPoints([
-      {value: ShengJi.cardValue.FIVE}
-    ]), 10, 'a bottom pile of 5 points will be worth 10 by default');
+    t.equals(ShengJi.calcKittyPoints([{
+      value: ShengJi.cardValue.FIVE
+    }]), 10, 'a bottom pile of 5 points will be worth 10 by default');
 
     // Explicit multiplier
     var multiplier = 3;
-    t.equals(ShengJi.calcKittyPoints([
-      {value: ShengJi.cardValue.FIVE}
-    ], multiplier),
-    15,
-    'a bottom pile of 5 points will be worth 15 with a 3x multiplier');
+    t.equals(ShengJi.calcKittyPoints([{
+        value: ShengJi.cardValue.FIVE
+      }], multiplier),
+      15,
+      'a bottom pile of 5 points will be worth 15 with a 3x multiplier');
   });
 
   it('calculates the # of decks based on the # of palyers', function(t) {

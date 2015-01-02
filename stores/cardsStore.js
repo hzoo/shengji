@@ -1,12 +1,12 @@
 var Reflux = require('reflux');
-var actions = require('../actions');
+var actions = require('../actions/actions');
 
 var cardsStore = Reflux.createStore({
 	listenables: actions,
-	init: function(){
+	init: function() {
 		this.played = [];
 	},
-	onSelect: function(playerId, card){
+	onSelect: function(playerId, card) {
 		console.log(playerId + " chose: " + JSON.stringify(card));
 		this.trigger(card);
 		//TODO write real logic here

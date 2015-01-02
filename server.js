@@ -1,8 +1,8 @@
 var express = require('express'),
 	http = require('http'),
-	routes = require('./routes'),
+	routes = require('./utils/routes'),
 	logger = require('./utils/Logger'),
-	config = require('./config');
+	config = require('./utils/config');
 
 var app = express();
 var port = process.env.PORT || 5000;
