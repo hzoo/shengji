@@ -6,7 +6,8 @@
     "start": "node server",
     "dev": "npm start && npm run hotload",
     "hotload": "webpack-dev-server --content-base build/ --progress --colors --hot --port 8090",
-    "test": "tape test/*.js"
+    "test": "tape test/*.js",
+    "postinstall": "$(npm bin)/webpack"
   },
   "repository": {
     "type": "git",
@@ -31,13 +32,13 @@
     "node-jsx": "~0.11.0",
     "react": "~0.11.2",
     "reflux": "~0.2.1",
-    "lodash": "~2.4.1"
-  },
-  "devDependencies": {
+    "lodash": "~2.4.1",
     "webpack": "~1.4.15",
     "style-loader": "~0.8.2",
     "css-loader": "~0.9.0",
-    "jsx-loader": "~0.12.2",
+    "jsx-loader": "~0.12.2"
+  },
+  "devDependencies": {
     "webpack-dev-server": "~1.7.0",
     "nodemon": "^1.2.1",
     "reactify": "~0.14.0",
