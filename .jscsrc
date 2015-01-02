@@ -1,5 +1,9 @@
 {
-  "excludeFiles": ["node_modules/**"],
+  "excludeFiles": [
+    "node_modules/**",
+    "build/**",
+    "coverage/**"
+  ],
   "disallowKeywords": ["with"],
   "disallowMixedSpacesAndTabs": true,
   "disallowMultipleLineStrings": true,
