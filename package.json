@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "description": "升级: a chinese trick-taking card game",
   "scripts": {
-    "start": "npm run serve | npm run dev",
-    "serve": "node server",
-    "dev": "webpack-dev-server --content-base build/ --progress --colors --hot --port 8090",
+    "start": "node server",
+    "dev": "npm start && npm run hotload",
+    "hotload": "webpack-dev-server --content-base build/ --progress --colors --hot --port 8090",
     "test": "tape test/*.js"
   },
   "repository": {
