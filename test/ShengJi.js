@@ -100,7 +100,7 @@ describe('ShengJi', function(suite) {
 
   it('determines if a card is a trump card', function(t) {
     jokers.forEach(function(card) {
-      t.true(ShengJi.isTrump(card), card.value + ' is a trump card');
+      t.true(ShengJi.isTrump(2, ShengJi.cardSuit.DIAMONDS, card), card.value + ' is a trump card');
     });
     t.end();
   });
