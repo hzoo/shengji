@@ -8,6 +8,7 @@
     "hotload": "webpack-dev-server --content-base build/ --progress --colors --hot --port 8090",
     "test": "tape test/*.js",
     "postinstall": "$(npm bin)/webpack ./app.jsx ./public/build/bundle.js",
+    "lint": "jscs . && jshint .",
     "coverage": "istanbul cover test/** --report lcovonly",
     "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
   },
@@ -42,12 +43,13 @@
   },
   "devDependencies": {
     "webpack-dev-server": "~1.7.0",
-    "nodemon": "^1.2.1",
+    "nodemon": "~1.2.1",
     "reactify": "~0.14.0",
     "uglify-js": "~2.4.15",
     "watchify": "~2.0.0",
     "tape": "~3.0.3",
-    "jscs": "~1.8.1",
+    "jscs": "~1.9.0",
+    "jshint": "~2.5.11",
     "coveralls": "~2.11.2",
     "istanbul": "~0.3.5"
   },
