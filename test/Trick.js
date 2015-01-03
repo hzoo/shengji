@@ -24,7 +24,7 @@ var plays = [{
 }, {
 	player: 4,
 	cards: [{
-		value: ShengJi.cardValue.CURRENTLEVEL,
+		value: ShengJi.cardValue.TWO,
 		suit: ShengJi.cardSuit.CLUBS
 	}]
 }];
@@ -62,7 +62,7 @@ describe('Trick', function(suite) {
 	});
 
 	it('Compares plays and updates the current leader correctly', function(t) {
-		t.plan(6);
+		t.plan(8);
 
 		var trick = new Trick(plays[0], 2, ShengJi.cardSuit.SPADES);
 		t.equals(trick.trumpSuit, ShengJi.cardSuit.SPADES, 'Sets the trump suit on the first play');
@@ -75,5 +75,9 @@ describe('Trick', function(suite) {
 		trick.play(plays[2]);
 		t.equals(trick.leader, plays[2].player, 'Leader changed because trump was played over an ace');
 		t.equals(trick.leadingPlay[0].suit, trick.trumpSuit, 'Leading play is now a trump suit card');
+
+		trick.play(plays[3]);
+		t.equals(trick.leader, plays[3].player, 'Leader changed because current level card was played over trump');
+		t.equals(trick.leadingPlay[0].suit, plays[3].cards[0].suit, 'Leading play is now a club');
 	});
 });
