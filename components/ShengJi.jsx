@@ -1,8 +1,8 @@
 'use strict';
 var React = require('react');
 var Reflux = require('reflux');
-var Hand = require('./Hand.jsx');
 var cardStore = require('../stores/cardsStore');
+var actions = require('../actions/actions');
 
 var example_hand = [{
 	value: 5,
@@ -14,6 +14,38 @@ var example_hand = [{
 	value: 6,
 	suit: "diamonds"
 }];
+
+var Card = React.createClass({
+	ready: function(playerId, card) {
+		actions.select(playerId, card);
+	},
+	render: function() {
+		var card = this.props.card;
+		var playerId = this.props.playerId;
+		return (
+			<div className={"card"}>
+				<button onClick={this.ready.bind(this, playerId, card)}>
+				{card.value} of {card.suit}
+				</button>
+			</div>
+		)
+	}
+});
+
+var Hand = React.createClass({
+	render: function() {
+		var cards = this.props.cards.map(function(card) {
+			return (
+				<Card card={card}	playerId={1}/>
+			)
+		});
+		return (
+			<div className={"container hand"}>
+				{cards}
+			</div>
+		)
+	}
+});
 
 var ShengJi = React.createClass({
 	mixins: [Reflux.listenTo(cardStore, "onStatusChange")],
