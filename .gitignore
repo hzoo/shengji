@@ -32,3 +32,6 @@ build/
 
 # Coveralls
 coverage/
+
+# JsDocs
+public/docs/
