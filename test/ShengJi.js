@@ -41,7 +41,7 @@ var pointCards = [{
 describe('ShengJi', function(suite) {
   var it = suite.test;
 
-  it('calcluates cards that are points', function(t) {
+  it('calculates cards that are points', function(t) {
     t.plan(3);
 
     t.equals(ShengJi.calcPointsForSingleCard({
@@ -57,20 +57,20 @@ describe('ShengJi', function(suite) {
     }), 10, 'K is 10 points');
   });
 
-  it('calcluates other cards to be worth no points', function(t) {
+  it('calculates other cards to be worth no points', function(t) {
     t.plan(1);
 
     t.equals(ShengJi.calcPoints(nonPointCards), 0);
   });
 
-  it('calcluates max points for a specified # of decks', function(t) {
+  it('calculates max points for a specified # of decks', function(t) {
     t.plan(2);
 
     t.equals(ShengJi.maxPoints(1), 100);
     t.equals(ShengJi.maxPoints(2), 200);
   });
 
-  it('calcluates bottom points with multiplier', function(t) {
+  it('calculates bottom points with multiplier', function(t) {
     t.plan(2);
 
     // Default multiplier
@@ -87,7 +87,7 @@ describe('ShengJi', function(suite) {
       'a bottom pile of 5 points will be worth 15 with a 3x multiplier');
   });
 
-  it('calculates the # of decks based on the # of palyers', function(t) {
+  it('calculates the # of decks based on the # of players', function(t) {
     t.equals(ShengJi.numDecks(4), 2, '2 decks for 4 players');
     t.equals(ShengJi.numDecks(5), 2, '2 decks for 5 players');
     t.equals(ShengJi.numDecks(6), 3, '3 decks for 6 players');
