@@ -1,7 +1,7 @@
 {
   "excludeFiles": [
     "node_modules/**",
-    "build/**",
+    "public/build/**",
     "coverage/**",
     "public/docs/**"
   ],

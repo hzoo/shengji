@@ -7,7 +7,7 @@
     "dev": "npm start | npm run hotload",
     "hotload": "webpack-dev-server --content-base build/ --progress --colors --hot --port 8090",
     "test": "tape test/*.js",
-    "postinstall": "$(npm bin)/webpack ./app.jsx ./public/build/bundle.js",
+    "postinstall": "$(npm bin)/webpack",
     "lint": "jscs . && jshint . --exclude-path .gitignore",
     "coverage": "istanbul cover test/** --report lcovonly",
     "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",

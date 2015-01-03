@@ -28,7 +28,7 @@ node_modules
 .lock-wscript
 
 # Webpack generated file
-build/
+public/build/
 
 # Coveralls
 coverage/
