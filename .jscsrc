@@ -2,7 +2,8 @@
   "excludeFiles": [
     "node_modules/**",
     "build/**",
-    "coverage/**"
+    "coverage/**",
+    "public/docs/**"
   ],
   "disallowKeywords": ["with"],
   "disallowMixedSpacesAndTabs": true,
