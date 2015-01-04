@@ -1,8 +1,9 @@
 'use strict';
-var React = require('react');
-var Reflux = require('reflux');
-var cardStore = require('../stores/cardsStore');
-var actions = require('../actions/actions');
+var React = require('react'),
+	Reflux = require('reflux'),
+	_ = require('lodash'),
+  cardStore = require('../stores/cardsStore'),
+  actions = require('../actions/actions');
 
 var example_hand = [{
 	value: 5,
@@ -16,15 +17,24 @@ var example_hand = [{
 }];
 
 var Card = React.createClass({
-	ready: function(playerId, card) {
-		actions.select(playerId, card);
+	mixins: [Reflux.listenTo(cardStore, "onSelect")],
+	onSelect: function(card, color){
+		if(_.isEqual(card, this.props.card)){
+			this.setState({style: { "background-color": color }});
+		}
+	},
+	componentWillMount: function(){
+		this.setState({});
+	},
+	ready: function(card) {
+		actions.select(card);
 	},
 	render: function() {
 		var card = this.props.card;
-		var playerId = this.props.playerId;
+		console.log(this.state.style);
 		return (
 			<div className={"card"}>
-				<button onClick={this.ready.bind(this, playerId, card)}>
+				<button onClick={this.ready.bind(this, card)} style={this.state.style}>
 				{card.value} of {card.suit}
 				</button>
 			</div>
@@ -36,7 +46,7 @@ var Hand = React.createClass({
 	render: function() {
 		var cards = this.props.cards.map(function(card) {
 			return (
-				<Card card={card}	playerId={1}/>
+				<Card card={card}/>
 			)
 		});
 		return (
@@ -48,10 +58,6 @@ var Hand = React.createClass({
 });
 
 var ShengJi = React.createClass({
-	mixins: [Reflux.listenTo(cardStore, "onStatusChange")],
-	onStatusChange: function(status) {
-		console.log("shengji component received " + status);
-	},
 	render: function() {
 		return (
 			<div className={"container shengji"}>

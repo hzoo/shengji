@@ -12,11 +12,17 @@ module.exports = {
     }, {
       test: /\.css$/,
       loader: "style!css"
+    }, {
+      test: /\.json$/,
+      loader: "json"
     }]
   },
   externals: {
     //don't bundle the 'react' npm package with our bundle.js
     //but get it from a global 'React' variable
     'react': 'React'
+  },
+  node: {
+    fs: "empty"
   }
 };
