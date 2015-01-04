@@ -6,6 +6,8 @@ module.exports = {
     publicPath: 'build/'
   },
   module: {
+    // disable jscs here until esnext fixed in #729
+    // jscs: disable
     loaders: [{
       test: /\.jsx$/,
       loader: 'jsx-loader?insertPragma=React.DOM&harmony'
@@ -16,6 +18,7 @@ module.exports = {
       test: /\.json$/,
       loader: "json"
     }]
+    // jscs: enable
   },
   externals: {
     //don't bundle the 'react' npm package with our bundle.js
