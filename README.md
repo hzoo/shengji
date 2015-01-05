@@ -1,9 +1,11 @@
-[![Dependency Status](https://img.shields.io/david/hzoo/shengji.svg)](https://david-dm.org/hzoo/shengji)
-[![devDependency Status](https://img.shields.io/david/dev/hzoo/shengji.svg)](https://david-dm.org/hzoo/shengji#info=devDependencies)
+[![Dependency Status]](https://david-dm.org/hzoo/shengji)
+[![devDependency Status]](https://david-dm.org/hzoo/shengji#info=devDependencies)
 
-#### Master Branch [ ![Codeship Status for hzoo/shengji](https://img.shields.io/codeship/9ded0240-72c2-0132-69bb-06c77d4bfcaa/master.svg)](https://codeship.com/projects/54845) [![Coverage Status](https://img.shields.io/coveralls/hzoo/shengji/master.svg)](https://coveralls.io/r/hzoo/shengji?branch=development)
+#### [Master]
+[![Master Codeship Status]](https://codeship.com/projects/54845) [![Master Coverage Status]](https://coveralls.io/r/hzoo/shengji?branch=development)
 
-#### Dev Branch [ ![Codeship Status for hzoo/shengji](https://img.shields.io/codeship/9ded0240-72c2-0132-69bb-06c77d4bfcaa/development.svg)](https://codeship.com/projects/54845) [![Coverage Status](https://img.shields.io/coveralls/hzoo/shengji/development.svg)](https://coveralls.io/r/hzoo/shengji?branch=development)
+#### [Dev]
+[![Dev Codeship Status]](https://codeship.com/projects/54845) [![Dev Coverage Status]](https://coveralls.io/r/hzoo/shengji?branch=development)
 
 **Sheng Ji** (Level Up) is a family of popular chinese trick-taking card games that has many variations.
 It has dynamic trumps, fixed/dynamic teams, and multiple rounds.
@@ -15,7 +17,7 @@ These games include:
 
 > Rules: https://en.wikipedia.org/wiki/Sheng_Ji
 
-## Running Stuff
+## [npm scripts]
 > npm install
 
 Development Server
@@ -29,3 +31,13 @@ Coverage
 
 Linters (jshint, jscs)
 > npm run lint
+
+[Dependency Status]: https://img.shields.io/david/hzoo/shengji.svg?style=flat-square
+[devDependency Status]: https://img.shields.io/david/dev/hzoo/shengji.svg?style=flat-square
+[Master]: http://sheng-ji.herokuapp.com/
+[Dev]: http://sheng-ji-dev.herokuapp.com/
+[Master Codeship Status]: https://img.shields.io/codeship/9ded0240-72c2-0132-69bb-06c77d4bfcaa/master.svg?style=flat-square
+[Master Coverage Status]: https://img.shields.io/coveralls/hzoo/shengji/master.svg?style=flat-square
+[Dev Codeship Status]: https://img.shields.io/codeship/9ded0240-72c2-0132-69bb-06c77d4bfcaa/development.svg?style=flat-square
+[Dev Coverage Status]: https://img.shields.io/coveralls/hzoo/shengji/development.svg?style=flat-square
+[npm scripts]: package.json
