@@ -62,9 +62,10 @@ describe('Trick', function(suite) {
 	});
 
 	it('Compares plays and updates the current leader correctly', function(t) {
-		t.plan(10);
+		t.plan(11);
 
 		var trick = new Trick(plays[0], 2, ShengJi.cardSuit.SPADES);
+		t.equals(trick.leader, trick.winner(), 'Leader equals winner');
 
 		trick.play(plays[1], ShengJi.cardSuit.SPADES, ShengJi.cardValue.TWO);
 		t.equals(trick.leader, plays[1].player, 'Leader changed when ace was played > king');
