@@ -5,6 +5,6 @@ var React = require('react');
 var ShengJi = require('./components/ShengJi.jsx');
 
 React.renderComponent(
-	<ShengJi cards={[]}/>,
-	document.getElementById("shengji-canvas")
+  <ShengJi cards={[]}/>,
+  document.getElementById("shengji-canvas")
 );
