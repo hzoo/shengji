@@ -67,23 +67,23 @@ describe('Trick', function(suite) {
 		var trick = new Trick(plays[0], 2, ShengJi.cardSuit.SPADES);
 		t.equals(trick.leader, trick.winner(), 'Leader equals winner');
 
-		trick.play(plays[1], ShengJi.cardSuit.SPADES, ShengJi.cardValue.TWO);
+		trick.play(plays[1], ShengJi.cardValue.TWO, ShengJi.cardSuit.SPADES);
 		t.equals(trick.leader, plays[1].player, 'Leader changed when ace was played > king');
 		t.equals(trick.leadingPlay[0].value, plays[1].cards[0].value, 'Leading play is now an Ace');
 
-		trick.play(plays[2], ShengJi.cardSuit.SPADES, ShengJi.cardValue.TWO);
+		trick.play(plays[2], ShengJi.cardValue.TWO, ShengJi.cardSuit.SPADES);
 		t.equals(trick.leader, plays[2].player, 'Leader changed because trump was played over an ace');
 		t.equals(trick.leadingPlay[0].suit, ShengJi.cardSuit.SPADES, 'Leading play is now a trump suit card');
 
-		trick.play(plays[3], ShengJi.cardSuit.SPADES, ShengJi.cardValue.TWO);
+		trick.play(plays[3], ShengJi.cardValue.TWO, ShengJi.cardSuit.SPADES);
 		t.equals(trick.leader, plays[3].player, 'Leader changed because current level card was played over trump');
 		t.equals(trick.leadingPlay[0].suit, plays[3].cards[0].suit, 'Leading play is now a club');
 
-		trick.play(joker, ShengJi.cardSuit.SPADES, ShengJi.cardValue.TWO);
+		trick.play(joker, ShengJi.cardValue.TWO, ShengJi.cardSuit.SPADES);
 		t.equals(trick.leader, joker.player, 'Leader changed because joker was played over level card');
 		t.equals(trick.leadingPlay[0].suit, ShengJi.cardSuit.SPADES, 'Leading play is now trump');
 
-		trick.play(plays[3], ShengJi.cardSuit.SPADES, ShengJi.cardValue.TWO);
+		trick.play(plays[3], ShengJi.cardValue.TWO, ShengJi.cardSuit.SPADES);
 		t.equals(trick.leader, joker.player, 'Leader remains the same lesser card was played');
 		t.equals(trick.leadingPlay[0].suit, ShengJi.cardSuit.SPADES, 'Leading play is still trump, did not change');
 	});
