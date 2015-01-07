@@ -1,7 +1,7 @@
 'use strict';
-var describe = require('tape').test;
-var Round = require('../lib/Round');
-var ShengJi = require('../lib/ShengJi')();
+var describe = require('tape').test,
+  Round = require('../lib/Round'),
+  ShengJi = require('../lib/ShengJi')();
 
 var joker = {player: 1, cards: [{ value: ShengJi.cardValue.BLACKJOKER, suit: ShengJi.cardSuit.JOKER }]};
 var level = {player: 2, cards: [{ value: ShengJi.cardValue.TWO, suit: ShengJi.cardSuit.DIAMONDS }]};

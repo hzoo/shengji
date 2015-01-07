@@ -1,6 +1,6 @@
 'use strict';
-var describe = require('tape').test;
-var ShengJi = require('../lib/ShengJi')();
+var describe = require('tape').test,
+  ShengJi = require('../lib/ShengJi')();
 
 var jokers = [{
   value: ShengJi.cardValue.REDJOKER
