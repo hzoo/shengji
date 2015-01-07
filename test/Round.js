@@ -19,10 +19,10 @@ describe('Round', function(suite) {
     t.equals(round.decks, 2, 'Sets the number of decks correctly');
     t.equals(round.dealer, 3, 'Sets the dealer correctly');
     t.equals(round.DECKSIZE, 4, 'Sets the deck size correctly');
-    t.equals(round.trump, ShengJi.cardSuit.JOKER, 'Sets the trump to be joker by default');
+    t.equals(round.trumpSuit, ShengJi.cardSuit.JOKER, 'Sets the trump to be joker by default');
 
     round.setTrump(ShengJi.cardSuit.SPADES);
-    t.equals(round.trump, ShengJi.cardSuit.SPADES, 'Sets the trump correctly when given');
+    t.equals(round.trumpSuit, ShengJi.cardSuit.SPADES, 'Sets the trump correctly when given');
   });
 
   it('Plays a trick correctly', function(t) {
@@ -36,7 +36,7 @@ describe('Round', function(suite) {
     t.true(round.trick, 'Creates a trick');
 
     round.play(trump);
-    t.equals(round.trump, trumpSuit, 'Does not change trump suit when playing a trick');
+    t.equals(round.trumpSuit, trumpSuit, 'Does not change trump suit when playing a trick');
     t.equals(round.trick.leader, trump.player, 'Changes the leading player correctly inside a trick');
 
     round.play(level);
