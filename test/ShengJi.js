@@ -191,6 +191,9 @@ describe('ShengJi', function(suite) {
     t.true(ShengJi.isStronger(threeDiamonds, threeTrump, trumpLevel, trumpSuit, leadingSuit),
       '3 of spades (trump) is stronger than 3 of diamonds');
 
+    t.false(ShengJi.isStronger(threeTrump, threeDiamonds, trumpLevel, trumpSuit, leadingSuit),
+      '3 of diamonds is not stronger than 3 of spades (trump)');
+
     t.true(ShengJi.isStronger(threeTrump, currentLevel, trumpLevel, trumpSuit, leadingSuit),
       'Current level is stronger than 3 of spades (trump)');
 
@@ -198,7 +201,7 @@ describe('ShengJi', function(suite) {
       'Current level and suit is stronger than just current level');
 
     t.true(ShengJi.isStronger(currentLevelAndSuit, blackJoker, trumpLevel, trumpSuit, leadingSuit),
-      'Black joker is stronger than Current level and suit');
+      'Black joker is stronger than current level and suit');
 
     t.true(ShengJi.isStronger(blackJoker, redJoker, trumpLevel, trumpSuit, leadingSuit),
       'Red joker is stronger than black joker');
