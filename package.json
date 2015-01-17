@@ -12,7 +12,8 @@
     "coverage": "istanbul cover arg.js test/*.js --report lcovonly",
     "coverage-html": "istanbul cover arg.js test/*.js --report html",
     "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
-    "docs": "$(npm bin)/jsdoc -c conf.json"
+    "docs": "$(npm bin)/jsdoc -c conf.json",
+    "ci": "npm run lint && npm test && npm run coveralls"
   },
   "repository": {
     "type": "git",
