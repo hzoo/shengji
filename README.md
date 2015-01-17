@@ -17,6 +17,8 @@ These games include:
 
 > Rules: https://en.wikipedia.org/wiki/Sheng_Ji
 
+- Contributing: [CONTRIBUTING.md](https://github.com/hzoo/shengji/blob/development/CONTRIBUTING.md)
+
 ## [npm scripts]
 > npm install
 
