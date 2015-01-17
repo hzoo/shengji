@@ -1,6 +1,7 @@
 'use strict';
 var describe = require('tape').test,
-  ShengJi = require('../lib/ShengJi')();
+  ShengJi = require('../lib/ShengJi')(),
+  Utils = require('../lib/Utils');
 
 var jokers = [{
   value: ShengJi.cardValue.REDJOKER
@@ -115,60 +116,17 @@ describe('ShengJi', function(suite) {
     var trumpSuit = ShengJi.cardSuit.SPADES;
     var leadingSuit = ShengJi.cardSuit.DIAMONDS;
 
-    var twoDiamonds = [{
-      value: ShengJi.cardValue.TWO,
-      suit: ShengJi.cardSuit.DIAMONDS
-    }];
-
-    var threeDiamonds = [{
-      value: ShengJi.cardValue.THREE,
-      suit: ShengJi.cardSuit.DIAMONDS
-    }];
-
-    var fourDiamonds = [{
-      value: ShengJi.cardValue.FOUR,
-      suit: ShengJi.cardSuit.DIAMONDS
-    }];
-
-    var twoClubs = [{
-      value: ShengJi.cardValue.TWO,
-      suit: ShengJi.cardSuit.CLUBS
-    }];
-
-    var threeClubs = [{
-      value: ShengJi.cardValue.THREE,
-      suit: ShengJi.cardSuit.CLUBS
-    }];
-
-    var twoTrump = [{
-      value: ShengJi.cardValue.TWO,
-      suit: ShengJi.cardSuit.SPADES
-    }];
-
-    var threeTrump = [{
-      value: ShengJi.cardValue.THREE,
-      suit: ShengJi.cardSuit.SPADES
-    }];
-
-    var currentLevel = [{
-      value: trumpLevel,
-      suit: ShengJi.cardSuit.DIAMONDS
-    }];
-
-    var currentLevelAndSuit = [{
-      value: trumpLevel,
-      suit: trumpSuit
-    }];
-
-    var redJoker = [{
-      value: ShengJi.cardValue.REDJOKER,
-      suit: ShengJi.cardSuit.JOKER
-    }];
-
-    var blackJoker = [{
-      value: ShengJi.cardValue.BLACKJOKER,
-      suit: ShengJi.cardSuit.JOKER
-    }];
+    var twoDiamonds = Utils.generateCard(ShengJi.cardValue.TWO, ShengJi.cardSuit.DIAMONDS),
+      threeDiamonds = Utils.generateCard(ShengJi.cardValue.THREE, ShengJi.cardSuit.DIAMONDS),
+      fourDiamonds = Utils.generateCard(ShengJi.cardValue.FOUR, ShengJi.cardSuit.DIAMONDS),
+      twoClubs = Utils.generateCard(ShengJi.cardValue.TWO, ShengJi.cardSuit.CLUBS),
+      threeClubs = Utils.generateCard(ShengJi.cardValue.TWO, ShengJi.cardSuit.CLUBS),
+      twoTrump = Utils.generateCard(ShengJi.cardValue.TWO, ShengJi.cardSuit.SPADES),
+      threeTrump = Utils.generateCard(ShengJi.cardValue.THREE, ShengJi.cardSuit.SPADES),
+      currentLevel = Utils.generateCard(trumpLevel, ShengJi.cardSuit.DIAMONDS),
+      currentLevelAndSuit = Utils.generateCard(trumpLevel, trumpSuit),
+      redJoker = Utils.generateCard(ShengJi.cardValue.REDJOKER, ShengJi.cardSuit.JOKER),
+      blackJoker = Utils.generateCard(ShengJi.cardValue.BLACKJOKER, ShengJi.cardSuit.JOKER);
 
     t.test('for single cards', function(t) {
       t.false(ShengJi.isStronger(threeDiamonds, threeDiamonds, trumpLevel, trumpSuit, leadingSuit),
@@ -251,7 +209,6 @@ describe('ShengJi', function(suite) {
 
       t.end();
     });
-
 
     t.end();
   });
