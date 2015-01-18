@@ -133,37 +133,37 @@ describe('ShengJi', function(suite) {
         '2nd play of the same card cannot be stronger');
 
       t.false(ShengJi.isStronger(threeDiamonds, twoDiamonds, trumpLevel, trumpSuit, leadingSuit),
-        '2 of diamonds is not stronger than 3 of diamonds');
+        '2 of diamonds < 3 of diamonds');
 
       t.true(ShengJi.isStronger(threeDiamonds, fourDiamonds, trumpLevel, trumpSuit, leadingSuit),
-        '4 of diamonds is stronger than 3 of diamonds');
+        '4 of diamonds > 3 of diamonds');
 
       t.false(ShengJi.isStronger(threeDiamonds, twoClubs, trumpLevel, trumpSuit, leadingSuit),
-        '2 of clubs (not trump) is not stronger than 3 of diamonds');
+        '2 of clubs (not trump) < than 3 of diamonds');
 
       t.false(ShengJi.isStronger(threeDiamonds, threeClubs, trumpLevel, trumpSuit, leadingSuit),
-        '3 of clubs (not trump) is not stronger than 3 of diamonds');
+        '3 of clubs (not trump) < 3 of diamonds');
 
       t.true(ShengJi.isStronger(threeDiamonds, twoTrump, trumpLevel, trumpSuit, leadingSuit),
-        '2 of spades (trump) is stronger than 3 of diamonds');
+        '2 of spades (trump) > 3 of diamonds');
 
       t.true(ShengJi.isStronger(threeDiamonds, threeTrump, trumpLevel, trumpSuit, leadingSuit),
-        '3 of spades (trump) is stronger than 3 of diamonds');
+        '3 of spades (trump) > 3 of diamonds');
 
       t.false(ShengJi.isStronger(threeTrump, threeDiamonds, trumpLevel, trumpSuit, leadingSuit),
-        '3 of diamonds is not stronger than 3 of spades (trump)');
+        '3 of diamonds < 3 of spades (trump)');
 
       t.true(ShengJi.isStronger(threeTrump, currentLevel, trumpLevel, trumpSuit, leadingSuit),
-        'Current level is stronger than 3 of spades (trump)');
+        'Current level > 3 of spades (trump)');
 
       t.true(ShengJi.isStronger(currentLevel, currentLevelAndSuit, trumpLevel, trumpSuit, leadingSuit),
-        'Current level and suit is stronger than just current level');
+        'Current level and suit > just current level');
 
       t.true(ShengJi.isStronger(currentLevelAndSuit, blackJoker, trumpLevel, trumpSuit, leadingSuit),
-        'Black joker is stronger than current level and suit');
+        'Black joker > current level and suit');
 
       t.true(ShengJi.isStronger(blackJoker, redJoker, trumpLevel, trumpSuit, leadingSuit),
-        'Red joker is stronger than black joker');
+        'Red joker > black joker');
 
       t.end();
     });
