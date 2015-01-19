@@ -18,12 +18,12 @@ var example_hand = [{
 
 var Card = React.createClass({
   mixins: [Reflux.listenTo(cardStore, "onSelect")],
-  onSelect: function(card, color){
-    if(_.isEqual(card, this.props.card)){
+  onSelect: function(card, color) {
+    if (_.isEqual(card, this.props.card)) {
       this.setState({style: { "background-color": color }});
     }
   },
-  componentWillMount: function(){
+  componentWillMount: function() {
     this.setState({});
   },
   ready: function(card) {

@@ -1,10 +1,13 @@
 {
+  "esnext": true,
+  "esprima": "./node_modules/esprima-fb",
   "excludeFiles": [
     "node_modules/**",
     "public/build/**",
     "coverage/**",
     "public/docs/**"
   ],
+  "fileExtensions": [".js", ".jsx"],
   "disallowKeywords": ["with"],
   "disallowMixedSpacesAndTabs": true,
   "disallowMultipleLineStrings": true,
