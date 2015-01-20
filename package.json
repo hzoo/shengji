@@ -32,6 +32,9 @@
     "name": "Henry Zhu",
     "url": "http://henryzoo.com"
   },
+  "engines": {
+    "iojs": "1.0.x"
+  },
   "license": "MIT",
   "dependencies": {
     "express": "~4.11.0",
