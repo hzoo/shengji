@@ -8,10 +8,10 @@ var level = {player: 2, cards: [{ value: ShengJi.cardValue.TWO, suit: ShengJi.ca
 var trump = {player: 3, cards: [{ value: ShengJi.cardValue.NINE, suit: ShengJi.cardSuit.SPADES }]};
 var normal = {player: 4, cards:[{ value: ShengJi.cardValue.TEN, suit: ShengJi.cardSuit.DIAMONDS }]};
 
-describe('Round', function(suite) {
+describe('Round', suite => {
   var it = suite.test;
 
-  it('Creates a new round and sets the state correctly', function(t) {
+  it('Creates a new round and sets the state correctly', t => {
     t.plan(6);
 
     var round = new Round([1, 2, 3, 4], 3, 2);
@@ -25,7 +25,7 @@ describe('Round', function(suite) {
     t.equals(round.trumpSuit, ShengJi.cardSuit.SPADES, 'Sets the trump correctly when given');
   });
 
-  it('Plays a trick correctly', function(t) {
+  it('Plays a trick correctly', t => {
     t.plan(9);
 
     var round = new Round([1, 2, 3, 4], 3, 2);

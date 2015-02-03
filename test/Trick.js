@@ -30,10 +30,10 @@ var plays = [{
   }]
 }];
 
-describe('Trick', function(suite) {
+describe('Trick', suite => {
   var it = suite.test;
 
-  it('Creates a new Trick and sets the properties correctly', function(t) {
+  it('Creates a new Trick and sets the properties correctly', t => {
     t.plan(6);
 
     var trick = new Trick(plays[0], 2);
@@ -49,7 +49,7 @@ describe('Trick', function(suite) {
     t.equals(trick.leadingSuit, ShengJi.cardSuit.DIAMONDS, 'Sets the lead suit to trump when joker is played');
   });
 
-  it('Calculates point cards in the trick correctly', function(t) {
+  it('Calculates point cards in the trick correctly', t => {
     t.plan(4);
 
     var points = new Trick(plays[0], 2);
@@ -61,7 +61,7 @@ describe('Trick', function(suite) {
     t.equals(nopoints.pointCards().length, 0, 'Returns the cards with points correctly when there are no points');
   });
 
-  it('Compares plays and updates the current leader correctly', function(t) {
+  it('Compares plays and updates the current leader correctly', t => {
     t.plan(11);
 
     var trick = new Trick(plays[0], 2, ShengJi.cardSuit.SPADES);

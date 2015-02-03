@@ -39,10 +39,10 @@ var pointCards = [{
   value: ShengJi.cardValue.KING
 }];
 
-describe('ShengJi', function(suite) {
+describe('ShengJi', suite => {
   var it = suite.test;
 
-  it('calculates cards that are points', function(t) {
+  it('calculates cards that are points', t => {
     t.plan(3);
 
     t.equals(ShengJi.calcPointsForSingleCard({
@@ -58,20 +58,20 @@ describe('ShengJi', function(suite) {
     }), 10, 'K is 10 points');
   });
 
-  it('calculates other cards to be worth no points', function(t) {
+  it('calculates other cards to be worth no points', t => {
     t.plan(1);
 
     t.equals(ShengJi.calcPoints(nonPointCards), 0);
   });
 
-  it('calculates max points for a specified # of decks', function(t) {
+  it('calculates max points for a specified # of decks', t => {
     t.plan(2);
 
     t.equals(ShengJi.maxPoints(1), 100);
     t.equals(ShengJi.maxPoints(2), 200);
   });
 
-  it('calculates bottom points with multiplier', function(t) {
+  it('calculates bottom points with multiplier', t => {
     t.plan(2);
 
     // Default multiplier
@@ -88,7 +88,7 @@ describe('ShengJi', function(suite) {
       'a bottom pile of 5 points will be worth 15 with a 3x multiplier');
   });
 
-  it('calculates the # of decks based on the # of players', function(t) {
+  it('calculates the # of decks based on the # of players', t => {
     t.equals(ShengJi.numDecks(4), 2, '2 decks for 4 players');
     t.equals(ShengJi.numDecks(5), 2, '2 decks for 5 players');
     t.equals(ShengJi.numDecks(6), 3, '3 decks for 6 players');
@@ -99,19 +99,19 @@ describe('ShengJi', function(suite) {
     t.end();
   });
 
-  it('determines if a card is a point card', function(t) {
-    pointCards.forEach(function(card) {
+  it('determines if a card is a point card', t => {
+    pointCards.forEach(card => {
       t.true(ShengJi.isAPointCard(card), card.value + ' is a point card');
     });
 
-    nonPointCards.forEach(function(card) {
+    nonPointCards.forEach(card => {
       t.false(ShengJi.isAPointCard(card), card.value + ' is not a point card');
     });
 
     t.end();
   });
 
-  it('determines the stronger play correctly', function(t) {
+  it('determines the stronger play correctly', t => {
     var trumpLevel = 5;
     var trumpSuit = ShengJi.cardSuit.SPADES;
     var leadingSuit = ShengJi.cardSuit.DIAMONDS;
@@ -128,7 +128,7 @@ describe('ShengJi', function(suite) {
       redJoker = Utils.generateCard(ShengJi.cardValue.REDJOKER, ShengJi.cardSuit.JOKER),
       blackJoker = Utils.generateCard(ShengJi.cardValue.BLACKJOKER, ShengJi.cardSuit.JOKER);
 
-    t.test('for single cards', function(t) {
+    t.test('for single cards', t => {
       t.false(ShengJi.isStronger(threeDiamonds, threeDiamonds, trumpLevel, trumpSuit, leadingSuit),
         '2nd play of the same card cannot be stronger');
 
@@ -168,7 +168,7 @@ describe('ShengJi', function(suite) {
       t.end();
     });
 
-    t.test('for pairs of cards', function(t) {
+    t.test('for pairs of cards', t => {
       t.false(ShengJi.isStronger(threeDiamonds.concat(threeDiamonds), threeDiamonds.concat(threeDiamonds),
         trumpLevel, trumpSuit, leadingSuit), '2nd play of the same pair cannot be stronger');
 
@@ -213,8 +213,8 @@ describe('ShengJi', function(suite) {
     t.end();
   });
 
-  it('determines if a card is a trump card', function(t) {
-    jokers.forEach(function(card) {
+  it('determines if a card is a trump card', t => {
+    jokers.forEach(card => {
       t.true(ShengJi.isTrump(card, 2, ShengJi.cardSuit.DIAMONDS), card.value + ' is a trump card');
     });
 
