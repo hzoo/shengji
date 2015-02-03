@@ -10,8 +10,12 @@ module.exports = {
     // jscs: disable
     loaders: [{
       test: /\.jsx$/,
-      loader: 'jsx-loader?insertPragma=React.DOM&harmony'
+      exclude: /node_modules/,
+      loader: '6to5?experimental&optional=selfContained'
     }, {
+      // test: /\.jsx$/,
+      // loader: 'jsx-loader?insertPragma=React.DOM&harmony'
+    // }, {
       test: /\.css$/,
       loader: "style!css"
     }, {

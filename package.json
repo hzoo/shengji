@@ -5,13 +5,13 @@
   "scripts": {
     "start": "node server",
     "dev": "npm start | npm run hotload",
-    "hotload": "webpack-dev-server --content-base build/ --progress --colors --hot --port 8090",
-    "test": "tape test/*.js",
-    "postinstall": "$(npm bin)/webpack",
+    "hotload": "$(npm bin)/webpack-dev-server --content-base build/ --progress --colors --hot --port 8090",
+    "test": "$(npm bin)/6to5-node $(npm bin)/tape test/*.js",
+    "postinstall": "$(npm bin)/webpack && cd node_modules/istanbul && npm install git://github.com/jquery/esprima.git#harmony",
     "lint": "jscs . --verbose && jshint . --exclude-path .gitignore",
-    "coverage": "istanbul cover arg.js test/*.js --report lcovonly",
-    "coverage-html": "istanbul cover arg.js test/*.js --report html",
-    "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
+    "coverage": "$(npm bin)/6to5-node $(npm bin)/istanbul cover arg.js test/*.js --report lcovonly",
+    "coverage-html": "$(npm bin)/6to5-node $(npm bin)/istanbul cover arg.js test/*.js --report html",
+    "coveralls": "npm run coverage && cat ./coverage/lcov.info | $(npm bin)/coveralls && rm -rf ./coverage",
     "docs": "$(npm bin)/jsdoc -c conf.json",
     "ci": "npm run lint && npm test && npm run coveralls"
   },
@@ -37,6 +37,8 @@
   },
   "license": "MIT",
   "dependencies": {
+    "6to5": "^3.3.4",
+    "6to5-loader": "^3.0.0",
     "css-loader": "~0.9.0",
     "express": "~4.11.0",
     "json-loader": "~0.5.1",
