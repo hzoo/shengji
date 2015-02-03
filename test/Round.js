@@ -14,7 +14,7 @@ describe('Round', suite => {
   it('Creates a new round and sets the state correctly', t => {
     t.plan(6);
 
-    var round = new Round([1, 2, 3, 4], 3, 2);
+    var round = new Round([1, 2, 3, 4], 2, 3);
     t.equals(round.level, 2, 'Sets the level correctly');
     t.equals(round.decks, 2, 'Sets the number of decks correctly');
     t.equals(round.dealer, 3, 'Sets the dealer correctly');
@@ -28,7 +28,7 @@ describe('Round', suite => {
   it('Plays a trick correctly', t => {
     t.plan(9);
 
-    var round = new Round([1, 2, 3, 4], 3, 2);
+    var round = new Round([1, 2, 3, 4], 2, 3);
     var trumpSuit = ShengJi.cardSuit.SPADES;
     round.setTrump(trumpSuit);
 
