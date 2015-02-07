@@ -4,37 +4,40 @@ var describe = require('tape').test,
   Utils = require('../lib/Utils'),
   ShengJi = require('../lib/ShengJi')();
 
+var v = ShengJi.cardValue;
+var s = ShengJi.cardSuit;
+
 describe('Utils', suite => {
   var it = suite.test;
 
   it('shuffles a list of cards into a random order', t => {
     var cards = [{
-      value: ShengJi.cardValue.TWO,
-      suit: ShengJi.cardSuit.DIAMONDS
+      value: v.TWO,
+      suit: s.DIAMONDS
     }, {
-      value: ShengJi.cardValue.THREE,
-      suit: ShengJi.cardSuit.DIAMONDS
+      value: v.THREE,
+      suit: s.DIAMONDS
     }, {
-      value: ShengJi.cardValue.FOUR,
-      suit: ShengJi.cardSuit.DIAMONDS
+      value: v.FOUR,
+      suit: s.DIAMONDS
     }, {
-      value: ShengJi.cardValue.FIVE,
-      suit: ShengJi.cardSuit.DIAMONDS
+      value: v.FIVE,
+      suit: s.DIAMONDS
     }, {
-      value: ShengJi.cardValue.SIX,
-      suit: ShengJi.cardSuit.DIAMONDS
+      value: v.SIX,
+      suit: s.DIAMONDS
     }, {
-      value: ShengJi.cardValue.SEVEN,
-      suit: ShengJi.cardSuit.DIAMONDS
+      value: v.SEVEN,
+      suit: s.DIAMONDS
     }, {
-      value: ShengJi.cardValue.EIGHT,
-      suit: ShengJi.cardSuit.DIAMONDS
+      value: v.EIGHT,
+      suit: s.DIAMONDS
     }, {
-      value: ShengJi.cardValue.NINE,
-      suit: ShengJi.cardSuit.DIAMONDS
+      value: v.NINE,
+      suit: s.DIAMONDS
     }, {
-      value: ShengJi.cardValue.TEN,
-      suit: ShengJi.cardSuit.DIAMONDS
+      value: v.TEN,
+      suit: s.DIAMONDS
     }];
 
     t.equals(Utils.shuffle(cards).length, cards.length, "Generated cards are equal in length");
@@ -42,11 +45,11 @@ describe('Utils', suite => {
   });
 
   it('generates a card when given the value and suit', t => {
-    var val = ShengJi.cardValue.FOUR;
-    var suit = ShengJi.cardSuit.SPADES;
+    var val = v.FOUR;
+    var suit = s.SPADES;
 
     t.test('defaults to a single card', t => {
-      var card = Utils.generateCard(val, suit);
+      var card = Utils.genCards(val, suit);
 
       t.equals(card.length, 1, "Generated cards are equal in length");
       t.equals(card[0].value, val, 'Equal in value');
@@ -56,7 +59,7 @@ describe('Utils', suite => {
 
     t.test('works for multiple cards', t => {
       var num = 5;
-      var cards = Utils.generateCard(val, suit, num);
+      var cards = Utils.genCards(val, suit, num);
 
       t.equals(cards.length, num, "Generated cards are equal in length");
       _.forEach(cards, c => {
@@ -68,12 +71,12 @@ describe('Utils', suite => {
   });
 
   it('generates a sorted tuolaji correctly', t => {
-    var val = ShengJi.cardValue.KING;
-    var suit = ShengJi.cardSuit.DIAMONDS;
-    var level = ShengJi.cardValue.FIVE;
+    var val = v.KING;
+    var suit = s.DIAMONDS;
+    var level = v.FIVE;
 
     t.test('for the default case of 2 pairs of cards', t => {
-      var tuolaji = Utils.generateTuolaji(val, suit, level);
+      var tuolaji = Utils.genTuolaji(val, suit, level);
       console.log(JSON.stringify(tuolaji));
       t.equals(tuolaji.length, 4, "Generated cards are equal in length");
       _.forEach(_.range(2), i => {
@@ -88,7 +91,7 @@ describe('Utils', suite => {
     t.test('for the case of 3 in a row of quad(4-card) plays', t => {
       var rowNum = 3;
       var cardNum = 4;
-      var tuolaji = Utils.generateTuolaji(val, suit, level, cardNum, rowNum);
+      var tuolaji = Utils.genTuolaji(val, suit, level, cardNum, rowNum);
 
       t.equals(tuolaji.length, rowNum * cardNum, "Generated cards are equal in length");
       _.forEach(_.range(rowNum), i => {

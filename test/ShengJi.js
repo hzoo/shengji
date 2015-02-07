@@ -3,40 +3,43 @@ var describe = require('tape').test,
   ShengJi = require('../lib/ShengJi')(),
   Utils = require('../lib/Utils');
 
+var v = ShengJi.cardValue;
+var s = ShengJi.cardSuit;
+
 var jokers = [{
-  value: ShengJi.cardValue.REDJOKER
+  value: v.REDJOKER
 }, {
-  value: ShengJi.cardValue.BLACKJOKER
+  value: v.BLACKJOKER
 }];
 
 var nonPointCards = [{
-  value: ShengJi.cardValue.TWO
+  value: v.TWO
 }, {
-  value: ShengJi.cardValue.THREE
+  value: v.THREE
 }, {
-  value: ShengJi.cardValue.FOUR
+  value: v.FOUR
 }, {
-  value: ShengJi.cardValue.SIX
+  value: v.SIX
 }, {
-  value: ShengJi.cardValue.SEVEN
+  value: v.SEVEN
 }, {
-  value: ShengJi.cardValue.EIGHT
+  value: v.EIGHT
 }, {
-  value: ShengJi.cardValue.NINE
+  value: v.NINE
 }, {
-  value: ShengJi.cardValue.JACK
+  value: v.JACK
 }, {
-  value: ShengJi.cardValue.QUEEN
+  value: v.QUEEN
 }, {
-  value: ShengJi.cardValue.ACE
+  value: v.ACE
 }];
 
 var pointCards = [{
-  value: ShengJi.cardValue.FIVE
+  value: v.FIVE
 }, {
-  value: ShengJi.cardValue.TEN
+  value: v.TEN
 }, {
-  value: ShengJi.cardValue.KING
+  value: v.KING
 }];
 
 describe('ShengJi', suite => {
@@ -46,15 +49,15 @@ describe('ShengJi', suite => {
     t.plan(3);
 
     t.equals(ShengJi.calcPointsForSingleCard({
-      value: ShengJi.cardValue.FIVE
+      value: v.FIVE
     }), 5, '5 is 5 points');
 
     t.equals(ShengJi.calcPointsForSingleCard({
-      value: ShengJi.cardValue.TEN
+      value: v.TEN
     }), 10, '10 is 10 points');
 
     t.equals(ShengJi.calcPointsForSingleCard({
-      value: ShengJi.cardValue.KING
+      value: v.KING
     }), 10, 'K is 10 points');
   });
 
@@ -76,13 +79,13 @@ describe('ShengJi', suite => {
 
     // Default multiplier
     t.equals(ShengJi.calcKittyPoints([{
-      value: ShengJi.cardValue.FIVE
+      value: v.FIVE
     }]), 10, 'a bottom pile of 5 points will be worth 10 by default');
 
     // Explicit multiplier
     var multiplier = 3;
     t.equals(ShengJi.calcKittyPoints([{
-        value: ShengJi.cardValue.FIVE
+        value: v.FIVE
       }], multiplier),
       15,
       'a bottom pile of 5 points will be worth 15 with a 3x multiplier');
@@ -113,20 +116,20 @@ describe('ShengJi', suite => {
 
   it('determines the stronger play correctly', t => {
     var trumpLevel = 5;
-    var trumpSuit = ShengJi.cardSuit.SPADES;
-    var leadingSuit = ShengJi.cardSuit.DIAMONDS;
+    var trumpSuit = s.SPADES;
+    var leadingSuit = s.DIAMONDS;
 
-    var twoDiamonds = Utils.generateCard(ShengJi.cardValue.TWO, ShengJi.cardSuit.DIAMONDS),
-      threeDiamonds = Utils.generateCard(ShengJi.cardValue.THREE, ShengJi.cardSuit.DIAMONDS),
-      fourDiamonds = Utils.generateCard(ShengJi.cardValue.FOUR, ShengJi.cardSuit.DIAMONDS),
-      twoClubs = Utils.generateCard(ShengJi.cardValue.TWO, ShengJi.cardSuit.CLUBS),
-      threeClubs = Utils.generateCard(ShengJi.cardValue.TWO, ShengJi.cardSuit.CLUBS),
-      twoTrump = Utils.generateCard(ShengJi.cardValue.TWO, ShengJi.cardSuit.SPADES),
-      threeTrump = Utils.generateCard(ShengJi.cardValue.THREE, ShengJi.cardSuit.SPADES),
-      currentLevel = Utils.generateCard(trumpLevel, ShengJi.cardSuit.DIAMONDS),
-      currentLevelAndSuit = Utils.generateCard(trumpLevel, trumpSuit),
-      redJoker = Utils.generateCard(ShengJi.cardValue.REDJOKER, ShengJi.cardSuit.JOKER),
-      blackJoker = Utils.generateCard(ShengJi.cardValue.BLACKJOKER, ShengJi.cardSuit.JOKER);
+    var twoDiamonds = Utils.genCards(v.TWO, s.DIAMONDS),
+      threeDiamonds = Utils.genCards(v.THREE, s.DIAMONDS),
+      fourDiamonds = Utils.genCards(v.FOUR, s.DIAMONDS),
+      twoClubs = Utils.genCards(v.TWO, s.CLUBS),
+      threeClubs = Utils.genCards(v.TWO, s.CLUBS),
+      twoTrump = Utils.genCards(v.TWO, s.SPADES),
+      threeTrump = Utils.genCards(v.THREE, s.SPADES),
+      currentLevel = Utils.genCards(trumpLevel, s.DIAMONDS),
+      currentLevelAndSuit = Utils.genCards(trumpLevel, trumpSuit),
+      redJoker = Utils.genCards(v.REDJOKER, s.JOKER),
+      blackJoker = Utils.genCards(v.BLACKJOKER, s.JOKER);
 
     t.test('for single cards', t => {
       t.false(ShengJi.isStronger(threeDiamonds, threeDiamonds, trumpLevel, trumpSuit, leadingSuit),
@@ -215,10 +218,10 @@ describe('ShengJi', suite => {
 
   it('determines if a card is a trump card', t => {
     jokers.forEach(card => {
-      t.true(ShengJi.isTrump(card, 2, ShengJi.cardSuit.DIAMONDS), card.value + ' is a trump card');
+      t.true(ShengJi.isTrump(card, 2, s.DIAMONDS), card.value + ' is a trump card');
     });
 
-    t.true(ShengJi.isTrump({ value: ShengJi.cardValue.TWO }, 2, ShengJi.cardSuit.DIAMONDS),
+    t.true(ShengJi.isTrump({ value: v.TWO }, 2, s.DIAMONDS),
       'current level is a trump');
 
     t.end();

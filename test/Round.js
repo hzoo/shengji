@@ -1,12 +1,16 @@
 'use strict';
 var describe = require('tape').test,
   Round = require('../lib/Round'),
-  ShengJi = require('../lib/ShengJi')();
+  ShengJi = require('../lib/ShengJi')(),
+    Utils = require('../lib/Utils');
 
-var joker = {player: 1, cards: [{ value: ShengJi.cardValue.BLACKJOKER, suit: ShengJi.cardSuit.JOKER }]};
-var level = {player: 2, cards: [{ value: ShengJi.cardValue.TWO, suit: ShengJi.cardSuit.DIAMONDS }]};
-var trump = {player: 3, cards: [{ value: ShengJi.cardValue.NINE, suit: ShengJi.cardSuit.SPADES }]};
-var normal = {player: 4, cards:[{ value: ShengJi.cardValue.TEN, suit: ShengJi.cardSuit.DIAMONDS }]};
+var v = ShengJi.cardValue;
+var s = ShengJi.cardSuit;
+
+var joker = { player: 1, cards: Utils.genCards(v.BLACKJOKER, s.JOKER) };
+var level = { player: 2, cards: Utils.genCards(v.TWO, s.DIAMONDS) };
+var trump = { player: 3, cards: Utils.genCards(v.NINE, s.SPADES) };
+var normal = { player: 4, cards: Utils.genCards(v.TEN, s.DIAMONDS) };
 
 describe('Round', suite => {
   var it = suite.test;
@@ -14,29 +18,37 @@ describe('Round', suite => {
   it('Creates a new round and sets the state correctly', t => {
     t.plan(6);
 
-    var round = new Round([1, 2, 3, 4], 2, 3);
-    t.equals(round.level, 2, 'Sets the level correctly');
-    t.equals(round.decks, 2, 'Sets the number of decks correctly');
-    t.equals(round.dealer, 3, 'Sets the dealer correctly');
-    t.equals(round.DECKSIZE, 4, 'Sets the deck size correctly');
-    t.equals(round.trumpSuit, ShengJi.cardSuit.JOKER, 'Sets the trump to be joker by default');
+    var round = new Round({
+      numPlayers: 4,
+      level: 2
+    });
+    t.equals(round.level, 2, 'Starts the level correctly');
+    t.equals(round.DECKS, 2, 'Starts the number of decks correctly');
+    t.equals(round.dealer, 0, 'Starts the startingDealer correctly');
+    t.equals(round.DECKSIZE, 4, 'Starts the deck size correctly');
+    t.equals(round.trumpSuit, s.JOKER, 'Constructs the trump to be joker by default');
 
-    round.setTrump(ShengJi.cardSuit.SPADES);
-    t.equals(round.trumpSuit, ShengJi.cardSuit.SPADES, 'Sets the trump correctly when given');
+    round.setTrump(s.SPADES);
+    t.equals(round.trumpSuit, s.SPADES, 'Sets the trump correctly when given');
   });
 
   it('Plays a trick correctly', t => {
-    t.plan(9);
+    t.plan(10);
 
-    var round = new Round([1, 2, 3, 4], 2, 3);
-    var trumpSuit = ShengJi.cardSuit.SPADES;
-    round.setTrump(trumpSuit);
+    var startingTrump = s.SPADES;
+    var round = new Round({
+      numPlayers: 4,
+      level: 2,
+      startingTrump: startingTrump,
+      startingDealer: 3
+    });
+    t.equals(round.trumpSuit, s.SPADES, 'Starts the trump correctly');
 
     round.startTrick(normal);
     t.true(round.trick, 'Creates a trick');
 
     round.play(trump);
-    t.equals(round.trumpSuit, trumpSuit, 'Does not change trump suit when playing a trick');
+    t.equals(round.trumpSuit, startingTrump, 'Does not change trump suit when playing a trick');
     t.equals(round.trick.leader, trump.player, 'Changes the leading player correctly inside a trick');
 
     round.play(level);
