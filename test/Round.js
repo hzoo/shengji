@@ -25,7 +25,7 @@ describe('Round', suite => {
     t.equals(round.level, 2, 'Starts the level correctly');
     t.equals(round.DECKS, 2, 'Starts the number of decks correctly');
     t.equals(round.dealer, 0, 'Starts the startingDealer correctly');
-    t.equals(round.DECKSIZE, 4, 'Starts the deck size correctly');
+    t.equals(round.DECKSIZE, 108, 'Starts the deck size correctly');
     t.equals(round.trumpSuit, s.JOKER, 'Constructs the trump to be joker by default');
 
     round.setTrump(s.SPADES);
@@ -60,6 +60,31 @@ describe('Round', suite => {
     t.equals(trickStats.winner, joker.player, 'Returns the correct winner of the trick');
     t.equals(round.playerPoints[joker.player], trickStats.points, 'Awards points to the winning player');
     t.equals(round.playedPile.length, 4, 'Maintains the pile of discarded cards correctly');
+  });
+
+  it('Ends a round correctly', t => {
+    t.plan(2);
+
+    var round = new Round({
+      numPlayers: 4,
+      level: 2,
+      startingTrump: s.SPADES,
+      startingDealer: 3
+    });
+    round.startTrick(normal);
+    round.play(trump);
+    round.play(level);
+    round.play(joker);
+
+    // test endRound by setting DECKSIZE to be lower
+    round.DECKSIZE = 4;
+    // set attackers
+    round.attackers = [0, 2];
+    round.defenders = [1, 3];
+
+    var trickStats = round.endTrick();
+    t.equals(trickStats.winningTeam, round.defenders, 'Returns the correct winning team');
+    t.equals(trickStats.levelsGained, 3, 'Returns the correct number of levels gained');
   });
 
 });
