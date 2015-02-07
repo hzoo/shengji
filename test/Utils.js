@@ -10,40 +10,6 @@ var s = ShengJi.cardSuit;
 describe('Utils', suite => {
   var it = suite.test;
 
-  it('shuffles a list of cards into a random order', t => {
-    var cards = [{
-      value: v.TWO,
-      suit: s.DIAMONDS
-    }, {
-      value: v.THREE,
-      suit: s.DIAMONDS
-    }, {
-      value: v.FOUR,
-      suit: s.DIAMONDS
-    }, {
-      value: v.FIVE,
-      suit: s.DIAMONDS
-    }, {
-      value: v.SIX,
-      suit: s.DIAMONDS
-    }, {
-      value: v.SEVEN,
-      suit: s.DIAMONDS
-    }, {
-      value: v.EIGHT,
-      suit: s.DIAMONDS
-    }, {
-      value: v.NINE,
-      suit: s.DIAMONDS
-    }, {
-      value: v.TEN,
-      suit: s.DIAMONDS
-    }];
-
-    t.equals(Utils.shuffle(cards).length, cards.length, "Generated cards are equal in length");
-    t.end();
-  });
-
   it('generates a card when given the value and suit', t => {
     var val = v.FOUR;
     var suit = s.SPADES;
@@ -77,7 +43,6 @@ describe('Utils', suite => {
 
     t.test('for the default case of 2 pairs of cards', t => {
       var tuolaji = Utils.genTuolaji(val, suit, level);
-      console.log(JSON.stringify(tuolaji));
       t.equals(tuolaji.length, 4, "Generated cards are equal in length");
       _.forEach(_.range(2), i => {
         _.forEach(_.range(2 * i, 2 * (i + 1)), j => {

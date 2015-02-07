@@ -6,31 +6,18 @@ var describe = require('tape').test,
 var v = ShengJi.cardValue;
 var s = ShengJi.cardSuit;
 
-var joker = {player: 1, cards: [{ value: v.BLACKJOKER }]};
+var joker = {
+  player: 1, cards: [{ value: v.BLACKJOKER }]
+};
+
 var plays = [{
-  player: 1,
-  cards: [{
-    value: v.KING,
-    suit: s.DIAMONDS
-  }]
+  player: 1, cards: [{ value: v.KING, suit: s.DIAMONDS }]
 }, {
-  player: 2,
-  cards: [{
-    value: v.ACE,
-    suit: s.DIAMONDS
-  }]
+  player: 2, cards: [{ value: v.ACE, suit: s.DIAMONDS }]
 }, {
-  player: 3,
-  cards: [{
-    value: v.FOUR,
-    suit: s.SPADES
-  }]
+  player: 3, cards: [{ value: v.FOUR, suit: s.SPADES }]
 }, {
-  player: 4,
-  cards: [{
-    value: v.TWO,
-    suit: s.CLUBS
-  }]
+  player: 4, cards: [{ value: v.TWO, suit: s.CLUBS }]
 }];
 
 describe('Trick', suite => {

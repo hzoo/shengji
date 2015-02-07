@@ -48,17 +48,9 @@ describe('ShengJi', suite => {
   it('calculates cards that are points', t => {
     t.plan(3);
 
-    t.equals(ShengJi.calcPointsForSingleCard({
-      value: v.FIVE
-    }), 5, '5 is 5 points');
-
-    t.equals(ShengJi.calcPointsForSingleCard({
-      value: v.TEN
-    }), 10, '10 is 10 points');
-
-    t.equals(ShengJi.calcPointsForSingleCard({
-      value: v.KING
-    }), 10, 'K is 10 points');
+    t.equals(ShengJi.calcPoints({ value: v.FIVE }), 5, '5 is 5 points');
+    t.equals(ShengJi.calcPoints({ value: v.TEN }), 10, '10 is 10 points');
+    t.equals(ShengJi.calcPoints({ value: v.KING }), 10, 'K is 10 points');
   });
 
   it('calculates other cards to be worth no points', t => {
@@ -78,16 +70,12 @@ describe('ShengJi', suite => {
     t.plan(2);
 
     // Default multiplier
-    t.equals(ShengJi.calcKittyPoints([{
-      value: v.FIVE
-    }]), 10, 'a bottom pile of 5 points will be worth 10 by default');
+    t.equals(ShengJi.calcKittyPoints([{ value: v.FIVE }]), 10,
+      'a bottom pile of 5 points will be worth 10 by default');
 
     // Explicit multiplier
     var multiplier = 3;
-    t.equals(ShengJi.calcKittyPoints([{
-        value: v.FIVE
-      }], multiplier),
-      15,
+    t.equals(ShengJi.calcKittyPoints([{ value: v.FIVE }], multiplier), 15,
       'a bottom pile of 5 points will be worth 15 with a 3x multiplier');
   });
 
@@ -218,7 +206,8 @@ describe('ShengJi', suite => {
 
   it('determines if a card is a trump card', t => {
     jokers.forEach(card => {
-      t.true(ShengJi.isTrump(card, 2, s.DIAMONDS), card.value + ' is a trump card');
+      t.true(ShengJi.isTrump(card, 2, s.DIAMONDS),
+        card.value + ' is a trump card');
     });
 
     t.true(ShengJi.isTrump({ value: v.TWO }, 2, s.DIAMONDS),
