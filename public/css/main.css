@@ -9,6 +9,7 @@ body {
 	background-color: white;
 	flex: 0 1 auto;
 	padding: 60px 20px;
+	user-select: none;
 }
 .Card--selected {
 	background-color: gold;
