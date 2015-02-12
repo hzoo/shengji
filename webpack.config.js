@@ -1,39 +1,55 @@
 'use strict';
 var autoprefixer = require('autoprefixer-core');
+var path = require('path');
+var webpack = require('webpack');
 
-module.exports = {
-  entry: ["./app.jsx"],
+function isDev() {
+  return process.env.NPM_CONFIG_PRODUCTION === 'false';
+}
+
+var loaders = isDev() ?
+[
+  'react-hot',
+  '6to5?experimental&optional=selfContained'
+] :
+['6to5?experimental&optional=selfContained'];
+
+var config = {
+  cache: true,
+  resolve: {
+    extensions: ['', '.js']
+  },
+  entry: [
+    './app.jsx'
+  ],
   output: {
-    path: "./public/build",
-    filename: "bundle.js",
-    publicPath: 'build/'
+    path: path.join(__dirname, '/public/build/'),
+    filename: 'bundle.js',
+    publicPath: 'http://localhost:8888/public/build'
   },
   module: {
-    // disable jscs here until esnext fixed in #729
-    // jscs: disable
     loaders: [{
       test: /\.jsx$/,
       exclude: /node_modules/,
-      loader: '6to5?experimental&optional=selfContained'
+      loaders: loaders
     }, {
-      // test: /\.jsx$/,
-      // loader: 'jsx-loader?insertPragma=React.DOM&harmony'
+    //   test: /\.jsx$/,
+    //   loader: 'jsx-loader?insertPragma=React.DOM&harmony'
     // }, {
       test: /\.css$/,
-      loader: "style!css!postcss"
+      loader: 'style!css!postcss'
     }, {
       test: /\.json$/,
-      loader: "json"
+      loader: 'json'
     }]
-    // jscs: enable
   },
-  externals: {
-    //don't bundle the 'react' npm package with our bundle.js
-    //but get it from a global 'React' variable
-    'react': 'React'
-  },
+  // externals: {
+  //   //don't bundle the 'react' npm package with our bundle.js
+  //   //but get it from a global 'React' variable
+  //   'react': 'React'
+  // },
   node: {
-    fs: "empty"
+    fs: 'empty'
   },
   postcss: [
     autoprefixer({
@@ -41,3 +57,19 @@ module.exports = {
     })
   ]
 };
+
+if (isDev()) {
+  // faster source maps
+  config.devtool = 'eval';
+  config.entry = [
+      'webpack-dev-server/client?http://localhost:8888',
+      'webpack/hot/dev-server',
+      './app.jsx'
+  ];
+  config.plugins = [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+  ];
+}
+
+module.exports = config;

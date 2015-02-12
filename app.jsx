@@ -4,7 +4,7 @@ require("./public/css/main.css");
 var React = require('react');
 var ShengJi = require('./components/ShengJi.jsx');
 
-React.renderComponent(
+React.render(
   <ShengJi cards={[]}/>,
-  document.body
+  document.getElementById("shengji-canvas")
 );
