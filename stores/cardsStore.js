@@ -16,8 +16,7 @@ var cardsStore = Reflux.createStore({
   },
   onSelect: function(card) {
     console.log(JSON.stringify(card));
-    var color = "#385F0F";
-    this.trigger(card, color);
+    this.trigger(card);
     //TODO write real logic here
   }
 });

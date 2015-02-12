@@ -1,13 +1,35 @@
 body {
+  margin: 0;
+  padding: 0;
   width: 100%;
+  background-color: #f5f5f5;
 }
 
-.card {
-  min-width: 10%;
-  border-width: 1px;
-  border-color: black;
+.Card {
+	background-color: white;
+	flex: 0 1 auto;
+	padding: 60px 20px;
+}
+.Card--selected {
+	background-color: gold;
 }
 
-.hand {
-  width: 80%;
+.Hand {
+	background-color: lightgray;
+	display: flex;
+	flex: 0 1 auto;
+	flex-direction: row;
+	justify-content: space-between;
+	min-width: 720px;
+}
+
+.Shengji {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.PlayingField {
+	flex: 1;
 }

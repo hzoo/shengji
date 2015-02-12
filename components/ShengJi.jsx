@@ -18,9 +18,10 @@ var example_hand = [{
 
 var Card = React.createClass({
   mixins: [Reflux.listenTo(cardStore, "onSelect")],
-  onSelect: function(card, color) {
+  onSelect: function(card) {
     if (_.isEqual(card, this.props.card)) {
-      this.setState({style: { "background-color": color }});
+      var selected = !this.state.selected;
+      this.setState({selected: selected});
     }
   },
   componentWillMount: function() {
@@ -31,14 +32,13 @@ var Card = React.createClass({
   },
   render: function() {
     var card = this.props.card;
-    console.log(this.state.style);
+    var selected = this.state.selected ? 'Card--selected' : '';
     return (
-      <div className={"card"}>
-        <button onClick={this.ready.bind(this, card)} style={this.state.style}>
-        {card.value} of {card.suit}
-        </button>
+      <div className={"Card " + selected}
+            onClick={this.ready.bind(this, card)}>
+          {card.value} of {card.suit}
       </div>
-    )
+    );
   }
 });
 
@@ -47,20 +47,30 @@ var Hand = React.createClass({
     var cards = this.props.cards.map(function(card) {
       return (
         <Card card={card}/>
-      )
+      );
     });
     return (
-      <div className={"container hand"}>
+      <div className={"Hand"}>
         {cards}
       </div>
-    )
+    );
+  }
+});
+
+var PlayingField = React.createClass({
+  render: function() {
+    return (
+      <div className={"PlayingField"}>
+      </div>
+    );
   }
 });
 
 var ShengJi = React.createClass({
   render: function() {
     return (
-      <div className={"container shengji"}>
+      <div className={"Shengji"}>
+        <PlayingField />
         <Hand cards = {example_hand}/>
       </div>
     )
