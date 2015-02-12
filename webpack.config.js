@@ -1,3 +1,6 @@
+'use strict';
+var autoprefixer = require('autoprefixer-core');
+
 module.exports = {
   entry: ["./app.jsx"],
   output: {
@@ -17,7 +20,7 @@ module.exports = {
       // loader: 'jsx-loader?insertPragma=React.DOM&harmony'
     // }, {
       test: /\.css$/,
-      loader: "style!css"
+      loader: "style!css!postcss"
     }, {
       test: /\.json$/,
       loader: "json"
@@ -31,5 +34,10 @@ module.exports = {
   },
   node: {
     fs: "empty"
-  }
+  },
+  postcss: [
+    autoprefixer({
+      browsers: ['last 2 version']
+    })
+  ]
 };
