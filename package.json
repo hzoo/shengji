@@ -4,13 +4,13 @@
   "description": "升级: a chinese trick-taking card game",
   "scripts": {
     "start": "node server",
-    "dev": "npm start | $(npm bin)/6to5-node hotload",
+    "dev": "npm start | $(npm bin)/babel-node hotload",
     "hotload": "$(npm bin)/webpack-dev-server --content-base build/ --progress --colors --hot --port 8090",
-    "test": "$(npm bin)/6to5-node $(npm bin)/tape test/*.js",
+    "test": "$(npm bin)/babel-node $(npm bin)/tape test/*.js",
     "postinstall": "$(npm bin)/webpack",
     "lint": "jscs . --verbose && jshint . --exclude-path .gitignore",
-    "coverage": "$(npm bin)/6to5-node $(npm bin)/istanbul cover arg.js test/*.js --report lcovonly",
-    "coverage-html": "$(npm bin)/6to5-node $(npm bin)/istanbul cover arg.js test/*.js --report html",
+    "coverage": "$(npm bin)/istanbul cover arg.js test/*.js --report lcovonly",
+    "coverage-html": "$(npm bin)/istanbul cover arg.js test/*.js --report html",
     "coveralls": "npm run coverage && cat ./coverage/lcov.info | $(npm bin)/coveralls && rm -rf ./coverage",
     "docs": "$(npm bin)/jsdoc -c conf.json",
     "ci": "npm run lint && npm test && npm run coveralls"
@@ -37,8 +37,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "6to5": "^3.3.4",
-    "6to5-loader": "^3.0.0",
+    "babel": "^4.5.1",
+    "babel-loader": "^4.0.0",
     "autoprefixer-core": "^5.1.5",
     "css-loader": "^0.9.0",
     "express": "~4.11.0",

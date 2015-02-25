@@ -11,9 +11,9 @@ function isDev() {
 var loaders = isDev() ?
 [
   'react-hot',
-  '6to5?experimental&optional=selfContained'
+  'babel?experimental&optional=selfContained'
 ] :
-['6to5?experimental&optional=selfContained'];
+['babel?experimental&optional=selfContained'];
 
 var config = {
   cache: true,
