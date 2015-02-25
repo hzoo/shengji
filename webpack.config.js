@@ -4,7 +4,8 @@ var path = require('path');
 var webpack = require('webpack');
 
 function isDev() {
-  return process.env.NPM_CONFIG_PRODUCTION === 'false';
+  return process.env.NPM_CONFIG_PRODUCTION === false ||
+    process.env.NPM_CONFIG_PRODUCTION === undefined;
 }
 
 var loaders = isDev() ?
@@ -38,6 +39,9 @@ var config = {
     // }, {
       test: /\.css$/,
       loader: 'style!css!postcss'
+    }, {
+      test: /\.(woff|woff2|eot|ttf|svg([\?]?.*))$/,
+      loader: 'url-loader?limit=100000'
     }, {
       test: /\.json$/,
       loader: 'json'

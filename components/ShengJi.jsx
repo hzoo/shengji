@@ -30,13 +30,18 @@ var Card = React.createClass({
   ready: function(card) {
     actions.select(card);
   },
+  toIcon: function(str) {
+    return 'icon-' + str;
+  },
   render: function() {
     var card = this.props.card;
     var selected = this.state.selected ? 'Card--selected' : '';
     return (
       <div className={"Card " + selected}
             onClick={this.ready.bind(this, card)}>
-          {card.value} of {card.suit}
+          {card.value + ' of '}
+          <span className={this.toIcon(card.suit)}>
+          </span>
       </div>
     );
   }

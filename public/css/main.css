@@ -7,9 +7,9 @@ body {
 
 .Card {
 	background-color: white;
-	flex: 0 1 auto;
 	padding: 60px 20px;
 	user-select: none;
+	border: 1px solid black;
 }
 .Card--selected {
 	background-color: gold;
@@ -20,7 +20,7 @@ body {
 	display: flex;
 	flex: 0 1 auto;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: center;
 	min-width: 720px;
 }
 
