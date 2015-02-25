@@ -1,9 +1,9 @@
 'use strict';
-var React = require('react'),
-  Reflux = require('reflux'),
-  _ = require('lodash'),
-  cardStore = require('../stores/cardsStore'),
-  actions = require('../actions/actions');
+var React = require('react');
+var Reflux = require('reflux');
+var _ = require('lodash');
+var cardStore = require('../stores/cardsStore');
+var actions = require('../actions/actions');
 
 var example_hand = [{
   value: 5,

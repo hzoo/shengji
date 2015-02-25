@@ -1,8 +1,8 @@
 'use strict';
-var describe = require('tape').test,
-  _ = require('lodash'),
-  Utils = require('../lib/Utils'),
-  ShengJi = require('../lib/ShengJi')();
+var describe = require('tape').test;
+var _ = require('lodash');
+var Utils = require('../lib/Utils');
+var ShengJi = require('../lib/ShengJi')();
 
 var v = ShengJi.cardValue;
 var s = ShengJi.cardSuit;

@@ -1,8 +1,8 @@
 'use strict';
-var describe = require('tape').test,
-  Round = require('../lib/Round'),
-  ShengJi = require('../lib/ShengJi')(),
-    Utils = require('../lib/Utils');
+var describe = require('tape').test;
+var Round = require('../lib/Round');
+var ShengJi = require('../lib/ShengJi')();
+var Utils = require('../lib/Utils');
 
 var v = ShengJi.cardValue;
 var s = ShengJi.cardSuit;
