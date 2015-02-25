@@ -70,11 +70,10 @@ describe('Round', suite => {
       level: 2,
       startingTrump: s.SPADES,
       startingDealer: 3
-    });
-    round.startTrick(normal);
-    round.play(trump);
-    round.play(level);
-    round.play(joker);
+    }).startTrick(normal)
+      .play(trump)
+      .play(level)
+      .play(joker);
 
     // test endRound by setting DECKSIZE to be lower
     round.DECKSIZE = 4;
