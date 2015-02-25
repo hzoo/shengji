@@ -6,42 +6,6 @@ var Utils = require('../lib/Utils');
 var v = ShengJi.cardValue;
 var s = ShengJi.cardSuit;
 
-var jokers = [{
-  value: v.REDJOKER
-}, {
-  value: v.BLACKJOKER
-}];
-
-var nonPointCards = [{
-  value: v.TWO
-}, {
-  value: v.THREE
-}, {
-  value: v.FOUR
-}, {
-  value: v.SIX
-}, {
-  value: v.SEVEN
-}, {
-  value: v.EIGHT
-}, {
-  value: v.NINE
-}, {
-  value: v.JACK
-}, {
-  value: v.QUEEN
-}, {
-  value: v.ACE
-}];
-
-var pointCards = [{
-  value: v.FIVE
-}, {
-  value: v.TEN
-}, {
-  value: v.KING
-}];
-
 describe('ShengJi', suite => {
   var it = suite.test;
 
@@ -56,7 +20,7 @@ describe('ShengJi', suite => {
   it('calculates other cards to be worth no points', t => {
     t.plan(1);
 
-    t.equals(ShengJi.calcPoints(nonPointCards), 0);
+    t.equals(ShengJi.calcPoints(ShengJi.nonPointCards), 0);
   });
 
   it('calculates max points for a specified # of decks', t => {
@@ -91,11 +55,11 @@ describe('ShengJi', suite => {
   });
 
   it('determines if a card is a point card', t => {
-    pointCards.forEach(card => {
+    ShengJi.pointCards.forEach(card => {
       t.true(ShengJi.isAPointCard(card), card.value + ' is a point card');
     });
 
-    nonPointCards.forEach(card => {
+    ShengJi.nonPointCards.forEach(card => {
       t.false(ShengJi.isAPointCard(card), card.value + ' is not a point card');
     });
 
@@ -205,7 +169,7 @@ describe('ShengJi', suite => {
   });
 
   it('determines if a card is a trump card', t => {
-    jokers.forEach(card => {
+    ShengJi.jokers.forEach(card => {
       t.true(ShengJi.isTrump(card, 2, s.DIAMONDS),
         card.value + ' is a trump card');
     });
