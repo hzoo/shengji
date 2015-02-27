@@ -10,6 +10,13 @@
 **Sheng Ji** (Level Up) is a family of popular chinese trick-taking card games that has many variations.
 It has dynamic trumps, fixed/dynamic teams, and multiple rounds.
 
+You can think of it as a combination/variation of rules from:
+- Spades/Hearts
+  - Highest ranking hand wins the trick.
+  - You need follow the leading player's suit when possible.
+  - Gain points (5, 10, K) instead of avoiding hearts.
+  - You want to become void/short in a suit to play off-suit.
+
 These games include:
  - Sìshí Fēn (40 points), Bāshí Fēn (80 points), Dǎ Bǎi Fēn (100 points)
  - Tuō Lā Jī (Tractor)
