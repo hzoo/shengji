@@ -12,7 +12,7 @@ body {
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	user-select: none;
 	/* offset so it's like a hand */
-	margin-left: -50px;
+	margin-left: -48px;
 	/* to make selection work (translateY) */
 	height: 94px;
 	/* fixed width */

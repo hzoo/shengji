@@ -4,17 +4,9 @@ var Reflux = require('reflux');
 var _ = require('lodash');
 var cardStore = require('../stores/cardsStore');
 var actions = require('../actions/actions');
+var Utils = require('../lib/Utils');
 
-var testHand = [{
-  value: 5,
-  suit: 'spades'
-}, {
-  value: 12,
-  suit: 'hearts'
-}, {
-  value: 6,
-  suit: 'diamonds'
-}];
+var testHand = _.take(Utils.genDecks(), 27);
 
 // TODO: move to Utils
 function toCardValue(value) {
@@ -27,6 +19,16 @@ function toCardValue(value) {
     '18': 'J'
   };
   return value > 10 ? map[value] : value;
+}
+
+function toSuitValue(value) {
+  var map = {
+    '1': 'diamonds',
+    '2': 'clubs',
+    '3': 'hearts',
+    '4': 'spades'
+  };
+  return map[value];
 }
 
 var Card = React.createClass({
@@ -48,15 +50,16 @@ var Card = React.createClass({
   },
   render: function() {
     var card = this.props.card;
+    var suit = toSuitValue(card.suit);
     var selected = this.state.selected ? ' Card--selected' : '';
-    var red = card.suit === 'diamonds' || card.suit === 'hearts' ? ' Card--red' : '';
+    var red = suit === 'diamonds' || suit === 'hearts' ? ' Card--red' : '';
     return (
       <div className={'Card' + selected + red}
             onClick={this.ready.bind(this, card)}>
           <div className={'Card-value'}>
             {toCardValue(card.value)}
           </div>
-          <div className={this.toIcon(card.suit) + ' Card-suit'}>
+          <div className={this.toIcon(suit) + ' Card-suit'}>
           </div>
       </div>
     );
