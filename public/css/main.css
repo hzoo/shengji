@@ -10,9 +10,12 @@ body {
 	padding: 60px 20px;
 	user-select: none;
 	border: 1px solid black;
+	max-height: 15px;
+	transition:all ease-in-out 0.1s;
 }
 .Card--selected {
 	background-color: gold;
+	transform: translateY(-10px);
 }
 
 .Hand {

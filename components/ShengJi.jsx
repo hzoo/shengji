@@ -5,7 +5,7 @@ var _ = require('lodash');
 var cardStore = require('../stores/cardsStore');
 var actions = require('../actions/actions');
 
-var example_hand = [{
+var testHand = [{
   value: 5,
   suit: "spades"
 }, {
@@ -76,7 +76,7 @@ var ShengJi = React.createClass({
     return (
       <div className={"Shengji"}>
         <PlayingField />
-        <Hand cards = {example_hand}/>
+        <Hand cards={testHand}/>
       </div>
     )
   }
