@@ -21,7 +21,7 @@ body {
 	transform: translateZ(0);
 }
 .Card--selected {
-	background-color: gold;
+	background-color: #FFF59D;
 	transform: translateY(-10px);
 }
 .Card--red {

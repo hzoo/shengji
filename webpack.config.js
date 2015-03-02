@@ -9,10 +9,7 @@ function isDev() {
 }
 
 var loaders = isDev() ?
-[
-  'react-hot',
-  'babel?experimental&optional=selfContained'
-] :
+['react-hot', 'babel?experimental&optional=selfContained'] :
 ['babel?experimental&optional=selfContained'];
 
 var config = {
@@ -30,7 +27,7 @@ var config = {
   },
   module: {
     loaders: [{
-      test: /\.jsx$/,
+      test: /\.(jsx|js)$/,
       exclude: /node_modules/,
       loaders: loaders
     }, {
@@ -73,6 +70,17 @@ if (isDev()) {
   config.plugins = [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
+  ];
+} else {
+  config.plugins = [
+    // keeps hashes consistent between compilations
+    new webpack.optimize.OccurenceOrderPlugin(),
+    // minifies your code
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        warnings: false
+      }
+    })
   ];
 }
 
