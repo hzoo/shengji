@@ -26,7 +26,7 @@ var config = {
   output: {
     path: path.join(__dirname, '/public/build/'),
     filename: 'bundle.js',
-    publicPath: 'http://localhost:8888/public/build'
+    publicPath: 'http://localhost:8888/public/build/'
   },
   module: {
     loaders: [{
