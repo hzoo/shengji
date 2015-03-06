@@ -31,6 +31,10 @@ function toSuitValue(value) {
   return map[value];
 }
 
+function isRedJoker(card) {
+  return card.value === 18;
+}
+
 var Card = React.createClass({
   mixins: [Reflux.listenTo(cardStore, 'onSelect')],
   onSelect: function(card) {
@@ -52,7 +56,7 @@ var Card = React.createClass({
     var card = this.props.card;
     var suit = toSuitValue(card.suit);
     var selected = this.state.selected ? ' Card--selected' : '';
-    var red = suit === 'diamonds' || suit === 'hearts' ? ' Card--red' : '';
+    var red = suit === 'diamonds' || suit === 'hearts' || isRedJoker(card) ? ' Card--red' : '';
     return (
       <div className={'Card' + selected + red}
             onClick={this.ready.bind(this, card)}>
