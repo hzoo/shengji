@@ -1,7 +1,7 @@
 Contributing
 ==================
 
-Thanks for checking the project!
+Thanks for checking out the project!
 
 1. [Pull Requests](#pull-requests)
 1. [Filing Bugs](#filing-bugs)
@@ -17,18 +17,20 @@ Pull-requests
  - Tests are located in `test/`.
  - Run `npm test` to catch failing tests.
 1. Run `npm run lint` locally to catch any JSHint and JSCS errors.
+1. Test the app with `npm run dev`
 
 Filing Bugs
 ----
 
 If you found an error, typo, or any other issues,
-please report it using [GitHub Issues](https://github.com/hzoo/shengji/issues). Try searching
-the issues to see if there is an existing report of your bug or feature request.
+please report it using [GitHub Issues](https://github.com/hzoo/shengji/issues).
+Try searching the issues to see if there is an existing report of your bug or feature request.
 
-Provide as much detail as possible and if possible the steps to reproduce the problem. This could include:
+Provide as much detail as possible and if possible the steps to reproduce the problem. You could also include:
+
 1. A failing test
 1. Your environment: browser, operating system, etc
-1. Screenshot/gif
+1. Screenshot/gif (you can ctrl+v a clipboard picture to the github textarea)
 1. console error output
 
 Codebase
@@ -38,6 +40,7 @@ You will need to be familar with some javascript/node for logic/server code, rea
 
 - The core logic of the game is in the `lib/` directory: starting with `lib/ShengJi.js`.
 - There is a corresponding folder called `test/` which contains tests for all the `lib/` files.
+- Check npm commands in the `package.json` file (listed in the README).
 
 Setting up your environment
 -------
