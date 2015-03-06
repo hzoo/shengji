@@ -5,8 +5,9 @@ var _ = require('lodash');
 var cardStore = require('../stores/cardsStore');
 var actions = require('../actions/actions');
 var Utils = require('../lib/Utils');
+var ShengJi = require('../lib/ShengJi');
 
-var testHand = _.take(Utils.genDecks(), 27);
+var testHand = _.take(Utils.genDecks(), 27).sort(cardSort);
 
 // TODO: move to Utils
 function toCardValue(value) {
@@ -29,6 +30,23 @@ function toSuitValue(value) {
     '4': 'spades'
   };
   return map[value];
+}
+
+// TODO: assuming no trump suit, no trump number
+function cardSort(a, b) {
+  if (a.suit > b.suit) {
+    return -1;
+  } else if (a.suit < b.suit) {
+    return 1;
+  } else {
+    if (a.value > b.value) {
+      return -1;
+    } else if (a.value < b.value) {
+      return 1;
+    } else {
+      return 0;
+    }
+  }
 }
 
 function isRedJoker(card) {
