@@ -5,7 +5,6 @@ var _ = require('lodash');
 var cardStore = require('../stores/cardsStore');
 var actions = require('../actions/actions');
 var Utils = require('../lib/Utils');
-var ShengJi = require('../lib/ShengJi');
 
 var testHand = _.take(Utils.genDecks(), 27).sort(cardSort);
 
