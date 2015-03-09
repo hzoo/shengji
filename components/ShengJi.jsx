@@ -53,18 +53,27 @@ function isRedJoker(card) {
 }
 
 var Card = React.createClass({
+  propTypes: {
+    card: React.PropTypes.shape({
+      id: React.PropTypes.number.isRequired,
+      value: React.PropTypes.number.isRequired,
+      suit: React.PropTypes.number.isRequired
+    }).isRequired,
+    key: React.PropTypes.number
+  },
   mixins: [Reflux.listenTo(cardStore, 'onSelect')],
-  onSelect: function(card) {
-    if (_.isEqual(card, this.props.card)) {
-      var selected = !this.state.selected;
+  onSelect: function(cardId, selected) {
+    if (cardId === this.props.card.id) {
       this.setState({selected: selected});
     }
   },
-  componentWillMount: function() {
-    this.setState({});
+  getInitialState: function() {
+    return {
+      selected: false
+    }
   },
-  ready: function(card) {
-    actions.select(card);
+  ready: function(cardId) {
+    actions.select(cardId);
   },
   toIcon: function(str) {
     return 'icon-' + str;
@@ -76,7 +85,7 @@ var Card = React.createClass({
     var red = suit === 'diamonds' || suit === 'hearts' || isRedJoker(card) ? ' Card--red' : '';
     return (
       <div className={'Card' + selected + red}
-            onClick={this.ready.bind(this, card)}>
+            onClick={this.ready.bind(this, card.id)}>
           <div className={'Card-value'}>
             {toCardValue(card.value)}
           </div>
@@ -88,10 +97,13 @@ var Card = React.createClass({
 });
 
 var Hand = React.createClass({
+  propTypes: {
+    cards: React.PropTypes.array.isRequired
+  },
   render: function() {
     var cards = this.props.cards.map(function(card) {
       return (
-        <Card card={card}/>
+        <Card key={card.id} card={card}/>
       );
     });
     return (
@@ -111,11 +123,22 @@ var PlayingField = React.createClass({
   }
 });
 
+var Actions = React.createClass({
+  render: function() {
+    return (
+      <div className={'Actions'}>
+        <button className={'Actions-play'}>Play Hand</button>
+      </div>
+    );
+  }
+});
+
 var ShengJi = React.createClass({
   render: function() {
     return (
       <div className={'Shengji'}>
         <PlayingField />
+        <Actions />
         <Hand cards={testHand}/>
       </div>
     )

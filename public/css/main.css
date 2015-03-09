@@ -3,53 +3,81 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
+  font-family: 'Roboto', sans-serif;
 }
 
 .Card {
-	background-color: white;
-	border: 1px solid black;
-	border-radius: 0.2em;
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	user-select: none;
-	/* offset so it's like a hand */
-	margin-left: -48px;
-	/* to make selection work (translateY) */
-	height: 94px;
-	/* fixed width */
-	width: 68px;
-	transition:all ease-in-out 0.1s;
-	transform: translateZ(0);
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 0.2em;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  user-select: none;
+  /* offset so it's like a hand */
+  margin-left: -48px;
+  /* to make selection work (translateY) */
+  height: 94px;
+  /* fixed width */
+  width: 68px;
+  transition:all ease-in-out 0.1s;
+  transform: translateZ(0);
 }
 .Card--selected {
-	background-color: #FFF59D;
-	transform: translateY(-10px);
+  background-color: #FFF59D;
+  transform: translateY(-10px);
 }
 .Card--red {
-	color: #F44336;
+  color: #F44336;
 }
-	.Card-value {
-		margin-left: 3px;
-	}
-	.Card-suit {
-		margin-left: 2px;
-	}
+  .Card-value {
+    margin-left: 3px;
+  }
+  .Card-suit {
+    margin-left: 2px;
+  }
 
 .Hand {
-	background-color: lightgray;
-	display: inline-flex;
-	flex: 0 1 auto;
-	flex-direction: row;
-	min-width: 720px;
-	justify-content: center;
+  background-color: lightgray;
+  display: inline-flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  min-width: 720px;
+  justify-content: center;
 }
 
 .Shengji {
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .PlayingField {
-	flex: 1;
+  flex: 1;
 }
+
+.Actions {
+  margin-bottom: 15px;
+}
+  .Actions-play {
+    background-color: #4caf50;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
+    outline: none;
+    border: none;
+    padding: 1em;
+    user-select: none;
+    line-height: 1;
+    font-style: normal;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .Actions-play:hover {
+    background-color: #43a047;
+  }
+  .Actions-play:active {
+    background-color: #43a047;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23);
+  }
+

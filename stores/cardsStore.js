@@ -6,19 +6,34 @@ var io = require('socket.io-client');
 var cardsStore = Reflux.createStore({
   listenables: actions,
   init: function() {
-    this.played = [];
-
-    var socket = io.connect();
-    socket.on("message", function(m) {
-      console.log(m);
-    });
-
+    this.selected = [];
   },
-  onSelect: function(card) {
-    console.log(JSON.stringify(card));
-    this.trigger(card);
-    //TODO write real logic here
+  onSelect: function(cardId) {
+    var selected = this.selected;
+    if (selected[cardId] === undefined) {
+      // initial selection
+      selected[cardId] = true;
+    } else {
+      // toggle true/false
+      selected[cardId] = !selected[cardId];
+    }
+
+    this.trigger(cardId, selected[cardId]);
   }
 });
+
+// var playedCardsStore = Reflux.createStore({
+//   listenables: actions,
+//   init: function() {
+//     this.playedCards = [];
+//     var socket = io.connect();
+//     socket.on("message", function(m) {
+//       console.log(m);
+//     });
+//   },
+//   onSend: function(cardIds) {
+//     this.trigger(cardIds);
+//   }
+// });
 
 module.exports = cardsStore;
