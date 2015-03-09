@@ -2,7 +2,7 @@
 var React = require('react');
 var Reflux = require('reflux');
 var _ = require('lodash');
-var cardStore = require('../stores/cardsStore');
+import {cardsStore} from '../stores/cardsStore';
 var actions = require('../actions/actions');
 var Utils = require('../lib/Utils');
 
@@ -61,7 +61,7 @@ var Card = React.createClass({
     }).isRequired,
     key: React.PropTypes.number
   },
-  mixins: [Reflux.listenTo(cardStore, 'onSelect')],
+  mixins: [Reflux.listenTo(cardsStore, 'onSelect')],
   onSelect: function(cardId, selected) {
     if (cardId === this.props.card.id) {
       this.setState({selected: selected});
