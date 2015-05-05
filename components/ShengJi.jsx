@@ -70,13 +70,13 @@ var Card = React.createClass({
   getInitialState: function() {
     return {
       selected: false
-    }
+    };
   },
   ready: function(cardId) {
     actions.select(cardId);
   },
   toIcon: function(str) {
-    return 'icon-' + str;
+    return `icon-${str}`;
   },
   render: function() {
     var card = this.props.card;
@@ -84,7 +84,7 @@ var Card = React.createClass({
     var selected = this.state.selected ? ' Card--selected' : '';
     var red = suit === 'diamonds' || suit === 'hearts' || isRedJoker(card) ? ' Card--red' : '';
     return (
-      <div className={'Card' + selected + red}
+      <div className={`Card${selected}${red}`}
             onClick={this.ready.bind(this, card.id)}>
           <div className={'Card-value'}>
             {toCardValue(card.value)}
@@ -141,7 +141,7 @@ var ShengJi = React.createClass({
         <Actions />
         <Hand cards={testHand}/>
       </div>
-    )
+    );
   }
 });
 

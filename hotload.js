@@ -9,7 +9,7 @@ var config = require('./webpack.config');
 var port = process.env.HOT_LOAD_PORT || 8888;
 
 new WebpackDevServer(webpack(config), {
-  contentBase: 'http://localhost:' + port,
+  contentBase: `http://localhost:${port}`,
   publicPath: config.output.publicPath,
   noInfo: true,
   hot: true
@@ -18,5 +18,5 @@ new WebpackDevServer(webpack(config), {
     console.log(err);
   }
 
-  console.log('Hot load server listening at localhost:' + port);
+  console.log(`Hot load server listening at localhost:${port}`);
 });
