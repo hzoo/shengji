@@ -1,24 +1,24 @@
 'use strict';
-var describe = require('tape').test;
-var Round = require('../lib/Round');
-var ShengJi = require('../lib/ShengJi')();
-var Utils = require('../lib/Utils');
+const describe = require('tape').test;
+const Round = require('../lib/Round');
+const ShengJi = require('../lib/ShengJi')();
+const Utils = require('../lib/Utils');
 
-var v = ShengJi.cardValue;
-var s = ShengJi.cardSuit;
+const v = ShengJi.cardValue;
+const s = ShengJi.cardSuit;
 
-var joker = { player: 1, cards: Utils.genCards(v.BLACKJOKER, s.JOKER) };
-var level = { player: 2, cards: Utils.genCards(v.TWO, s.DIAMONDS) };
-var trump = { player: 3, cards: Utils.genCards(v.NINE, s.SPADES) };
-var normal = { player: 4, cards: Utils.genCards(v.TEN, s.DIAMONDS) };
+const joker = { player: 1, cards: Utils.genCards(v.BLACKJOKER, s.JOKER) };
+const level = { player: 2, cards: Utils.genCards(v.TWO, s.DIAMONDS) };
+const trump = { player: 3, cards: Utils.genCards(v.NINE, s.SPADES) };
+const normal = { player: 4, cards: Utils.genCards(v.TEN, s.DIAMONDS) };
 
 describe('Round', suite => {
-  var it = suite.test;
+  const it = suite.test;
 
   it('Creates a new round and sets the state correctly', t => {
     t.plan(6);
 
-    var round = new Round({
+    let round = new Round({
       numPlayers: 4,
       level: 2
     });
@@ -35,8 +35,8 @@ describe('Round', suite => {
   it('Plays a trick correctly', t => {
     t.plan(10);
 
-    var startingTrump = s.SPADES;
-    var round = new Round({
+    const startingTrump = s.SPADES;
+    const round = new Round({
       numPlayers: 4,
       level: 2,
       startingTrump: startingTrump,
@@ -53,7 +53,7 @@ describe('Round', suite => {
 
     round.play(level);
     round.play(joker);
-    var trickStats = round.endTrick();
+    const trickStats = round.endTrick();
     t.equals(round.history.length, 1, 'Adds the last trick to the round history');
     t.equals(trickStats.pointCards.length, 1, 'Returns the correct point cards in the trick');
     t.equals(trickStats.points, 10, 'Returns the correct number of points in the trick');
@@ -65,7 +65,7 @@ describe('Round', suite => {
   it('Ends a round correctly', t => {
     t.plan(2);
 
-    var round = new Round({
+    const round = new Round({
       numPlayers: 4,
       level: 2,
       startingTrump: s.SPADES,
@@ -81,7 +81,7 @@ describe('Round', suite => {
     round.attackers = [0, 2];
     round.defenders = [1, 3];
 
-    var trickStats = round.endTrick();
+    const trickStats = round.endTrick();
     t.equals(trickStats.winningTeam, round.defenders, 'Returns the correct winning team');
     t.equals(trickStats.levelsGained, 3, 'Returns the correct number of levels gained');
   });

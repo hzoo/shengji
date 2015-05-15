@@ -1,13 +1,13 @@
 'use strict';
-var describe = require('tape').test;
-var ShengJi = require('../lib/ShengJi')();
-var Utils = require('../lib/Utils');
+const describe = require('tape').test;
+const ShengJi = require('../lib/ShengJi')();
+const Utils = require('../lib/Utils');
 
-var v = ShengJi.cardValue;
-var s = ShengJi.cardSuit;
+const v = ShengJi.cardValue;
+const s = ShengJi.cardSuit;
 
 describe('ShengJi', suite => {
-  var it = suite.test;
+  const it = suite.test;
 
   it('calculates cards that are points', t => {
     t.plan(3);
@@ -38,7 +38,7 @@ describe('ShengJi', suite => {
       'a bottom pile of 5 points will be worth 10 by default');
 
     // Explicit multiplier
-    var multiplier = 3;
+    const multiplier = 3;
     t.equals(ShengJi.calcKittyPoints([{ value: v.FIVE }], multiplier), 15,
       'a bottom pile of 5 points will be worth 15 with a 3x multiplier');
   });
@@ -67,21 +67,21 @@ describe('ShengJi', suite => {
   });
 
   it('determines the stronger play correctly', t => {
-    var trumpLevel = 5;
-    var trumpSuit = s.SPADES;
-    var leadingSuit = s.DIAMONDS;
+    const trumpLevel = 5;
+    const trumpSuit = s.SPADES;
+    const leadingSuit = s.DIAMONDS;
 
-    var twoDiamonds = Utils.genCards(v.TWO, s.DIAMONDS),
-      threeDiamonds = Utils.genCards(v.THREE, s.DIAMONDS),
-      fourDiamonds = Utils.genCards(v.FOUR, s.DIAMONDS),
-      twoClubs = Utils.genCards(v.TWO, s.CLUBS),
-      threeClubs = Utils.genCards(v.TWO, s.CLUBS),
-      twoTrump = Utils.genCards(v.TWO, s.SPADES),
-      threeTrump = Utils.genCards(v.THREE, s.SPADES),
-      currentLevel = Utils.genCards(trumpLevel, s.DIAMONDS),
-      currentLevelAndSuit = Utils.genCards(trumpLevel, trumpSuit),
-      redJoker = Utils.genCards(v.REDJOKER, s.JOKER),
-      blackJoker = Utils.genCards(v.BLACKJOKER, s.JOKER);
+    const twoDiamonds = Utils.genCards(v.TWO, s.DIAMONDS);
+    const threeDiamonds = Utils.genCards(v.THREE, s.DIAMONDS);
+    const fourDiamonds = Utils.genCards(v.FOUR, s.DIAMONDS);
+    const twoClubs = Utils.genCards(v.TWO, s.CLUBS);
+    const threeClubs = Utils.genCards(v.TWO, s.CLUBS);
+    const twoTrump = Utils.genCards(v.TWO, s.SPADES);
+    const threeTrump = Utils.genCards(v.THREE, s.SPADES);
+    const currentLevel = Utils.genCards(trumpLevel, s.DIAMONDS);
+    const currentLevelAndSuit = Utils.genCards(trumpLevel, trumpSuit);
+    const redJoker = Utils.genCards(v.REDJOKER, s.JOKER);
+    const blackJoker = Utils.genCards(v.BLACKJOKER, s.JOKER);
 
     t.test('for single cards', t => {
       t.false(ShengJi.isStronger(threeDiamonds, threeDiamonds, trumpLevel, trumpSuit, leadingSuit),

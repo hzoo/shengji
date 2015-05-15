@@ -1,15 +1,15 @@
 'use strict';
-var Reflux = require('reflux');
-var actions = require('../actions/actions');
-// var io = require('socket.io-client');
+const Reflux = require('reflux');
+const actions = require('../actions/actions');
+// const io = require('socket.io-client');
 
-export var cardsStore = Reflux.createStore({
+export const cardsStore = Reflux.createStore({
   listenables: actions,
   init: function() {
     this.selected = [];
   },
   onSelect: function(cardId) {
-    var selected = this.selected;
+    const selected = this.selected;
     if (selected[cardId] === undefined) {
       // initial selection
       selected[cardId] = true;

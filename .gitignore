@@ -28,10 +28,10 @@ node_modules
 .lock-wscript
 
 # Webpack generated file
-public/build/
+public/build
 
 # Coveralls
-coverage/
+coverage
 
 # JsDocs
-public/docs/
+public/docs

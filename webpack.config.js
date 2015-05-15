@@ -1,18 +1,17 @@
 'use strict';
-var autoprefixer = require('autoprefixer-core');
-var path = require('path');
-var webpack = require('webpack');
+const autoprefixer = require('autoprefixer-core');
+const path = require('path');
+const webpack = require('webpack');
 
-function isDev() {
-  return process.env.NPM_CONFIG_PRODUCTION === false ||
-    process.env.NPM_CONFIG_PRODUCTION === undefined;
-}
+const isDev =
+  process.env.NPM_CONFIG_PRODUCTION === false ||
+  process.env.NPM_CONFIG_PRODUCTION === undefined;
 
-var loaders = isDev() ?
+const loaders = isDev ?
 ['react-hot', 'babel?experimental&optional=selfContained'] :
 ['babel?experimental&optional=selfContained'];
 
-var config = {
+const config = {
   cache: true,
   resolve: {
     extensions: ['', '.js']
@@ -59,7 +58,7 @@ var config = {
   ]
 };
 
-if (isDev()) {
+if (isDev) {
   // faster source maps
   config.devtool = 'eval';
   config.entry = [

@@ -9,6 +9,7 @@
     "test": "$(npm bin)/babel-node $(npm bin)/tape test/*.js",
     "postinstall": "$(npm bin)/webpack",
     "lint": "jscs . --verbose && jshint . --exclude-path .gitignore",
+    "eslint": "$(npm bin)/eslint --ignore-path .gitignore ./",
     "coverage": "$(npm bin)/istanbul cover arg.js test/*.js --report lcovonly",
     "coverage-html": "$(npm bin)/istanbul cover arg.js test/*.js --report html",
     "coveralls": "npm run coverage && cat ./coverage/lcov.info | $(npm bin)/coveralls && rm -rf ./coverage",
@@ -55,7 +56,9 @@
     "webpack": "~1.8.11"
   },
   "devDependencies": {
+    "babel-eslint": "^3.1.1",
     "coveralls": "^2.11.2",
+    "eslint": "^0.21.0",
     "esprima-fb": "^15001.1.0-dev-harmony-fb",
     "file-loader": "^0.8.1",
     "istanbul": "^0.3.5",

@@ -1,7 +1,7 @@
 'use strict';
-var Reflux = require('reflux');
+const Reflux = require('reflux');
 
-var actions = Reflux.createActions([
+const actions = Reflux.createActions([
   // UI actions
   'showHUD',
   // player actions
