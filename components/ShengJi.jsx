@@ -22,7 +22,7 @@ function toCardValue(value) {
 }
 
 function toSuitValue(value) {
-  var map = {
+  const map = {
     '1': 'diamonds',
     '2': 'clubs',
     '3': 'hearts',
@@ -52,7 +52,7 @@ function isRedJoker(card) {
   return card.value === 18;
 }
 
-var Card = React.createClass({
+const Card = React.createClass({
   propTypes: {
     card: React.PropTypes.shape({
       id: React.PropTypes.number.isRequired,
@@ -79,10 +79,10 @@ var Card = React.createClass({
     return `icon-${str}`;
   },
   render: function() {
-    var card = this.props.card;
-    var suit = toSuitValue(card.suit);
-    var selected = this.state.selected ? ' Card--selected' : '';
-    var red = suit === 'diamonds' || suit === 'hearts' || isRedJoker(card) ? ' Card--red' : '';
+    const card = this.props.card;
+    const suit = toSuitValue(card.suit);
+    const selected = this.state.selected ? ' Card--selected' : '';
+    const red = suit === 'diamonds' || suit === 'hearts' || isRedJoker(card) ? ' Card--red' : '';
     return (
       <div className={`Card${selected}${red}`}
             onClick={this.ready.bind(this, card.id)}>
@@ -96,12 +96,12 @@ var Card = React.createClass({
   }
 });
 
-var Hand = React.createClass({
+const Hand = React.createClass({
   propTypes: {
     cards: React.PropTypes.array.isRequired
   },
   render: function() {
-    var cards = this.props.cards.map(function(card) {
+    const cards = this.props.cards.map(function(card) {
       return (
         <Card key={card.id} card={card}/>
       );
@@ -114,7 +114,7 @@ var Hand = React.createClass({
   }
 });
 
-var PlayingField = React.createClass({
+const PlayingField = React.createClass({
   render: function() {
     return (
       <div className={'PlayingField'}>
@@ -123,7 +123,7 @@ var PlayingField = React.createClass({
   }
 });
 
-var Actions = React.createClass({
+const Actions = React.createClass({
   render: function() {
     return (
       <div className={'Actions'}>
@@ -133,7 +133,7 @@ var Actions = React.createClass({
   }
 });
 
-var ShengJi = React.createClass({
+const ShengJi = React.createClass({
   render: function() {
     return (
       <div className={'Shengji'}>

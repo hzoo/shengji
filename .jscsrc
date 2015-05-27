@@ -1,7 +1,7 @@
 {
   "esnext": true,
-  "esprima": "./node_modules/esprima-fb",
-  // "esprima": "../babel-jscs",
+  // "esprima": "./node_modules/esprima-fb",
+  "esprima": "./node_modules/babel-jscs",
   "excludeFiles": [
     "node_modules/**",
     "public/build/**",
