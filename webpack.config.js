@@ -1,17 +1,17 @@
 'use strict';
-const autoprefixer = require('autoprefixer-core');
-const path = require('path');
-const webpack = require('webpack');
+var autoprefixer = require('autoprefixer-core');
+var path = require('path');
+var webpack = require('webpack');
 
-const isDev =
+var isDev =
   process.env.NPM_CONFIG_PRODUCTION === false ||
   process.env.NPM_CONFIG_PRODUCTION === undefined;
 
-const loaders = isDev ?
-['react-hot', 'babel?experimental&optional=selfContained'] :
-['babel?experimental&optional=selfContained'];
+var loaders = isDev ?
+['react-hot', 'babel?stage=1'] :
+['babel?stage=1'];
 
-const config = {
+var config = {
   cache: true,
   resolve: {
     extensions: ['', '.js']

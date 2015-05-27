@@ -1,12 +1,12 @@
 'use strict';
-var React = require('react');
-var Reflux = require('reflux');
-var _ = require('lodash');
+const React = require('react');
+const Reflux = require('reflux');
+const _ = require('lodash');
 import {cardsStore} from '../stores/cardsStore';
-var actions = require('../actions/actions');
-var Utils = require('../lib/Utils');
+const actions = require('../actions/actions');
+const Utils = require('../lib/Utils');
 
-var testHand = _.take(Utils.genDecks(), 27).sort(cardSort);
+const testHand = _.take(Utils.genDecks(), 27).sort(cardSort);
 
 // TODO: move to Utils
 function toCardValue(value) {
