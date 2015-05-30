@@ -1,6 +1,4 @@
 {
-  "esnext": true,
-  // "esprima": "./node_modules/esprima-fb",
   "esprima": "./node_modules/babel-jscs",
   "excludeFiles": [
     "node_modules/**",
@@ -12,6 +10,7 @@
   "disallowKeywords": ["with"],
   "disallowMixedSpacesAndTabs": true,
   "disallowMultipleLineStrings": true,
+  "disallowNodeTypes": ["LabeledStatment"],
   "disallowNotOperatorsInConditionals": true,
   "disallowNewlineBeforeBlockStatements": true,
   "disallowSpaceAfterObjectKeys": true,
@@ -79,5 +78,12 @@
     "beforeOpeningCurlyBrace": true
   },
   "validateLineBreaks": "LF",
-  "validateParameterSeparator": ", "
+  "validateParameterSeparator": ", ",
+  // ES6
+  "disallowParenthesesAroundArrowParam": true,
+  "requireNumericLiterals": true,
+  // "requireArrowFunctions": true, // wait for fix
+  "requireShorthandArrowFunctions": true,
+  "requireSpread": true,
+  "requireTemplateStrings": true
 }

@@ -62,23 +62,15 @@ const Card = React.createClass({
     key: React.PropTypes.number
   },
   mixins: [Reflux.listenTo(cardsStore, 'onSelect')],
-  onSelect: function(cardId, selected) {
+  onSelect(cardId, selected) {
     if (cardId === this.props.card.id) {
       this.setState({selected: selected});
     }
   },
-  getInitialState: function() {
-    return {
-      selected: false
-    };
-  },
-  ready: function(cardId) {
-    actions.select(cardId);
-  },
-  toIcon: function(str) {
-    return `icon-${str}`;
-  },
-  render: function() {
+  getInitialState: () => ({ selected: false }),
+  ready: cardId => { actions.select(cardId); },
+  toIcon: str => `icon-${str}`,
+  render() {
     const card = this.props.card;
     const suit = toSuitValue(card.suit);
     const selected = this.state.selected ? ' Card--selected' : '';
@@ -100,12 +92,8 @@ const Hand = React.createClass({
   propTypes: {
     cards: React.PropTypes.array.isRequired
   },
-  render: function() {
-    const cards = this.props.cards.map(function(card) {
-      return (
-        <Card key={card.id} card={card}/>
-      );
-    });
+  render() {
+    const cards = this.props.cards.map(card => <Card key={card.id} card={card} />);
     return (
       <div className={'Hand'}>
         {cards}
@@ -115,16 +103,13 @@ const Hand = React.createClass({
 });
 
 const PlayingField = React.createClass({
-  render: function() {
-    return (
-      <div className={'PlayingField'}>
-      </div>
-    );
+  render() {
+    return <div className={'PlayingField'}></div>;
   }
 });
 
 const Actions = React.createClass({
-  render: function() {
+  render() {
     return (
       <div className={'Actions'}>
         <button className={'Actions-play'}>Play Hand</button>
@@ -134,7 +119,7 @@ const Actions = React.createClass({
 });
 
 const ShengJi = React.createClass({
-  render: function() {
+  render() {
     return (
       <div className={'Shengji'}>
         <PlayingField />

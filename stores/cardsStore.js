@@ -5,10 +5,10 @@ const actions = require('../actions/actions');
 
 export const cardsStore = Reflux.createStore({
   listenables: actions,
-  init: function() {
+  init() {
     this.selected = [];
   },
-  onSelect: function(cardId) {
+  onSelect(cardId) {
     const selected = this.selected;
     if (selected[cardId] === undefined) {
       // initial selection
