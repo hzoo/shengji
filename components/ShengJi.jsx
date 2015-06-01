@@ -81,7 +81,7 @@ const Card = React.createClass({
           <div className={'Card-value'}>
             {toCardValue(card.value)}
           </div>
-          <div className={this.toIcon(suit) + ' Card-suit'}>
+          <div className={`${this.toIcon(suit)} Card-suit`}>
           </div>
       </div>
     );

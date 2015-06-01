@@ -56,11 +56,11 @@ describe('ShengJi', suite => {
 
   it('determines if a card is a point card', t => {
     ShengJi.pointCards.forEach(card => {
-      t.true(ShengJi.isAPointCard(card), card.value + ' is a point card');
+      t.true(ShengJi.isAPointCard(card), `${card.value} is a point card`);
     });
 
     ShengJi.nonPointCards.forEach(card => {
-      t.false(ShengJi.isAPointCard(card), card.value + ' is not a point card');
+      t.false(ShengJi.isAPointCard(card), `${card.value} is not a point card`);
     });
 
     t.end();
@@ -171,7 +171,7 @@ describe('ShengJi', suite => {
   it('determines if a card is a trump card', t => {
     ShengJi.jokers.forEach(card => {
       t.true(ShengJi.isTrump(card, 2, s.DIAMONDS),
-        card.value + ' is a trump card');
+        `${card.value} is a trump card`);
     });
 
     t.true(ShengJi.isTrump({ value: v.TWO }, 2, s.DIAMONDS),
