@@ -82,7 +82,7 @@
   // ES6
   "disallowParenthesesAroundArrowParam": true,
   "requireNumericLiterals": true,
-  // "requireArrowFunctions": true, // wait for fix
+  "requireArrowFunctions": true,
   "requireShorthandArrowFunctions": true,
   "requireSpread": true,
   "requireTemplateStrings": true
