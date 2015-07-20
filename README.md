@@ -38,7 +38,7 @@ Tests
 Coverage
 > npm run coverage
 
-Linters (jshint, jscs)
+Lint
 > npm run lint
 
 [Dependency Status]: https://img.shields.io/david/hzoo/shengji.svg?style=flat-square

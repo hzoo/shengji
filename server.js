@@ -1,4 +1,3 @@
-'use strict';
 var express = require('express');
 var http = require('http');
 var path = require('path');
@@ -14,7 +13,6 @@ var server = http.createServer(app).listen(port, function() {
   console.log('Starting the server on port ', port);
 });
 
-// Testing socket relationship with react/reflux
 var io = require('socket.io').listen(server);
 
 io.sockets.on('connection', function(socket) {

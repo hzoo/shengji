@@ -1,4 +1,3 @@
-'use strict';
 var autoprefixer = require('autoprefixer-core');
 var path = require('path');
 var webpack = require('webpack');
@@ -17,7 +16,7 @@ var config = {
     extensions: ['', '.js']
   },
   entry: [
-    './app.jsx'
+    './app.js'
   ],
   output: {
     path: path.join(__dirname, '/public/build/'),
@@ -64,7 +63,7 @@ if (isDev) {
   config.entry = [
       'webpack-dev-server/client?http://localhost:8888',
       'webpack/hot/dev-server',
-      './app.jsx'
+      './app.js'
   ];
   config.plugins = [
     new webpack.HotModuleReplacementPlugin(),

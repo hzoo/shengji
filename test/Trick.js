@@ -1,4 +1,3 @@
-'use strict';
 const describe = require('tape').test;
 const ShengJi = require('../lib/ShengJi')();
 const Trick = require('../lib/Trick');

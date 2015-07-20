@@ -1,4 +1,3 @@
-'use strict';
 const describe = require('tape').test;
 const _ = require('lodash');
 const Utils = require('../lib/Utils');

@@ -16,7 +16,7 @@ Pull-requests
 1. Please add tests for your changes.
  - Tests are located in `test/`.
  - Run `npm test` to catch failing tests.
-1. Run `npm run lint` locally to catch any JSHint and JSCS errors.
+1. Run `npm run lint` locally
 1. Test the app with `npm run dev`
 
 Filing Bugs
@@ -68,46 +68,6 @@ Setting up your environment
 > If there were changes pushed to the development branch while you were updating your PR, you will have to rebase your changes on top of the previous ones.
 
 `git pull --ff upstream master`
-
-Commit Message Format
--------
-
-We are using the [angular.js commit message](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#commit) guidelines.
-
-This format can be achieved via:
-
-* `git commit` to open your editor to create a multi-line commit message
-
-```
-<type>(<scope>): <subject>
-<BLANK LINE>
-<body>
-<BLANK LINE>
-Closes gh-<pullRequestNumber>
-Fixes #<issueNumber>
-```
-
-### Type
-Must be one of the following:
-
-* **feat**: A new feature
-* **fix**: A bug fix
-* **docs**: Documentation only changes
-* **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing
-  semi-colons, etc)
-* **refactor**: A code change that neither fixes a bug or adds a feature
-* **perf**: A code change that improves performance
-* **test**: Adding missing tests
-* **chore**: Changes to the build process or auxiliary tools and libraries such as documentation
-  generation
-
-Example:
-
-```
-test(ShengJi.isStronger): add another test
-```
-
-You can find other examples of this format by [viewing recent commits](https://github.com/hzoo/shengji/commits/development) made to the dev branch.
 
 ### Coding Style
 - We are using jscs to check for coding style. Our config is [here](https://github.com/hzoo/shengji/blob/development/.jscsrc).

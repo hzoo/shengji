@@ -7,12 +7,18 @@
   "ecmaFeatures": {
     "jsx": true
   },
+  "plugins": [
+    "react"
+  ],
   "parser": "babel-eslint",
   "rules": {
     "strict": 0,
     "no-shadow": 0,
     "no-underscore-dangle": 0,
     "no-unused-vars": [1, { "vars": "all", "args": "none" }],
-    "quotes": [1, "single", "avoid-escape"]
+    "quotes": [1, "single", "avoid-escape"],
+
+    "react/jsx-uses-react": 1,
+    "react/jsx-uses-vars": 1,
   }
 }

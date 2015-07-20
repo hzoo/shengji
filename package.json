@@ -8,13 +8,13 @@
     "hotload": "$(npm bin)/webpack-dev-server --content-base build/ --progress --colors --hot --port 8090",
     "test": "$(npm bin)/babel-node $(npm bin)/tape test/*.js",
     "postinstall": "$(npm bin)/webpack",
-    "lint": "jscs actions components lib stores test --verbose && npm run eslint",
+    "lint": "jscs actions components constants containers lib reducers test --verbose && npm run eslint",
     "eslint": "$(npm bin)/eslint --ignore-path .gitignore ./",
     "coverage": "$(npm bin)/istanbul cover arg.js test/*.js --report lcovonly",
     "coverage-html": "$(npm bin)/istanbul cover arg.js test/*.js --report html",
     "coveralls": "npm run coverage && cat ./coverage/lcov.info | $(npm bin)/coveralls && rm -rf ./coverage",
     "docs": "$(npm bin)/jsdoc -c conf.json",
-    "ci": "npm run lint && npm test && npm run coveralls"
+    "ci": "npm run lint && npm test"
   },
   "repository": {
     "type": "git",
@@ -33,40 +33,36 @@
     "name": "Henry Zhu",
     "url": "http://henryzoo.com"
   },
-  "engines": {
-    "iojs": "1.0.x"
-  },
   "license": "MIT",
   "dependencies": {
+    "autoprefixer-core": "^5.1.5",
     "babel": "^5.2.12",
     "babel-loader": "^5.0.0",
-    "autoprefixer-core": "^5.1.5",
-    "css-loader": "^0.14.3",
-    "express": "~4.12.2",
+    "css-loader": "^0.15.5",
+    "express": "^4.12.2",
     "json-loader": "^0.5.1",
     "jsx-loader": "^0.13.2",
     "lodash": "^3.1.0",
-    "postcss-loader": "^0.4.2i",
-    "react": "~0.12.2",
-    "reflux": "~0.2.1",
-    "socket.io": "~1.3.2",
-    "socket.io-client": "~1.3.2",
+    "postcss-loader": "^0.5.1",
+    "react": "^0.13.3",
+    "react-redux": "^0.2.1",
+    "redux": "^1.0.0-rc",
+    "socket.io": "^1.3.2",
+    "socket.io-client": "^1.3.2",
     "style-loader": "^0.12.1",
     "url-loader": "^0.5.5",
-    "webpack": "~1.9.10"
+    "webpack": "^1.10.1"
   },
   "devDependencies": {
     "babel-eslint": "^3.1.9",
     "babel-jscs": "^2.0.0",
     "coveralls": "^2.11.2",
     "eslint": "^0.24.0",
-    "esprima-fb": "^15001.1.0-dev-harmony-fb",
+    "eslint-plugin-react": "^2.7.1",
     "file-loader": "^0.8.1",
     "istanbul": "^0.3.5",
     "jscs": "jscs-dev/node-jscs#master",
     "jsdoc": "^3.3.0-alpha13",
-    "jshint": "^2.6.0",
-    "nodemon": "^1.3.6",
     "react-hot-loader": "^1.1.5",
     "tape": "^4.0.0",
     "webpack-dev-server": "^1.7.0"

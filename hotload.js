@@ -1,5 +1,3 @@
-'use strict';
-
 // This little dev server is basically a wrapped express server that
 // 'hot loads' our javascript for super fast live reload in development
 var webpack = require('webpack');
@@ -12,7 +10,11 @@ new WebpackDevServer(webpack(config), {
   contentBase: `http://localhost:${port}`,
   publicPath: config.output.publicPath,
   noInfo: true,
-  hot: true
+  hot: true,
+  historyApiFallback: true,
+  stats: {
+    colors: true
+  }
 }).listen(port, 'localhost', function(err) {
   if (err) {
     console.log(err);

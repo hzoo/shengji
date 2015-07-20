@@ -1,9 +1,14 @@
 language: node_js
 
 node_js:
-  - "0.10"
+  - 0.10
+  - 0.12
+  - iojs
 
 before_script:
-	- cd node_modules/istanbul && npm install git://github.com/jquery/esprima.git#harmony && cd -
+	- cd node_modules/istanbul && npm install git://github.com/jquery/esprima.git && cd -
 
-script: "npm run ci"
+script: npm run ci
+
+after_sucess:
+  - npm run coveralls
