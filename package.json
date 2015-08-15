@@ -60,7 +60,7 @@
     "eslint-plugin-react": "^3.2.2",
     "file-loader": "^0.8.1",
     "istanbul": "^0.3.5",
-    "jscs": "2.1.0",
+    "jscs": "^2.1.0",
     "jsdoc": "^3.3.2",
     "react-hot-loader": "^1.1.5",
     "tape": "^4.0.0",
