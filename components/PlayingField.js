@@ -6,4 +6,4 @@ const PlayingField = React.createClass({
   }
 });
 
-module.exports = PlayingField;
+export default PlayingField;

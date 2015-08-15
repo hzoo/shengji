@@ -10,4 +10,4 @@ const Actions = React.createClass({
   }
 });
 
-module.exports = Actions;
+export default Actions;

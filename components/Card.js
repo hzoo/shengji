@@ -36,7 +36,9 @@ const Card = React.createClass({
     }).isRequired,
     key: React.PropTypes.number
   },
-  toIcon: str => `icon-${str}`,
+  toIcon(str) {
+    return `icon-${str}`
+  },
   render() {
     const { card, selectCard } = this.props;
     const suit = toSuitValue(card.suit);
@@ -44,15 +46,14 @@ const Card = React.createClass({
     const red = suit === 'diamonds' || suit === 'hearts' || isRedJoker(card) ? ' Card--red' : '';
     return (
       <div className={`Card${selected}${red}`}
-            onClick={() => selectCard(card.id)}>
+           onClick={() => selectCard(card.id)}>
           <div className={'Card-value'}>
             {toCardValue(card.value)}
           </div>
-          <div className={`${this.toIcon(suit)} Card-suit`}>
-          </div>
+          <div className={`${this.toIcon(suit)} Card-suit`}></div>
       </div>
     );
   }
 });
 
-module.exports = Card;
+export default Card;
