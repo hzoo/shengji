@@ -59,7 +59,7 @@ var config = {
 
 if (isDev) {
   // faster source maps
-  config.devtool = 'eval';
+  config.devtool = 'eval-source-map';
   config.entry = [
       'webpack-dev-server/client?http://localhost:8888',
       'webpack/hot/dev-server',

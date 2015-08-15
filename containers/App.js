@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import ShengJi from './ShengJi';
-import { createStore, combineReducers } from 'redux';
+import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import * as reducers from '../reducers';
+import rootReducer from '../reducers';
 
-const reducer = combineReducers(reducers);
-const store = createStore(reducer);
+const store = createStore(rootReducer);
 
 export default class App extends Component {
   render() {

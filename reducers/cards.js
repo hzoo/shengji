@@ -34,9 +34,7 @@ export default function cards(state = initialState, action) {
   case SELECT_CARD:
     return state.map(card =>
       card.id === action.id ?
-        // jscs:disable disallowSpaceAfterObjectKeys
         { ...card, selected: !card.selected } :
-        // jscs:enable disallowSpaceAfterObjectKeys
         card
     );
   case DEAL_CARDS:

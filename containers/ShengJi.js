@@ -1,22 +1,16 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
-import { Connector } from 'react-redux';
+import { connect } from 'react-redux';
 import PlayingField from '../components/PlayingField';
 import Actions from '../components/Actions';
 import Hand from '../components/Hand';
 import * as CardActions from '../actions/CardActions';
 
-export default class ShengJi extends Component {
+class ShengJi extends Component {
   render() {
-    return (
-      <Connector select={state => ({ cards: state.cards })}>
-        {this.renderChild}
-      </Connector>
-    );
-  }
-
-  renderChild({ cards, dispatch }) {
+    const { cards, dispatch } = this.props;
     const actions = bindActionCreators(CardActions, dispatch);
+
     return (
       <div className={'Shengji'}>
         <PlayingField />
@@ -26,3 +20,10 @@ export default class ShengJi extends Component {
     );
   }
 }
+
+function mapState(state) {
+  return { cards: state.cards };
+}
+
+export default connect(mapState)(ShengJi);
+
